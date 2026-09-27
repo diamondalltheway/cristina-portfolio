@@ -78,7 +78,11 @@
             alt={item.alt}
             loading="lazy"
           />
-          <span class="project-open" aria-hidden="true">↗</span>
+          <span class="project-open" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 19 19 5M5 5h14v14" />
+            </svg>
+          </span>
         </span>
         <span class="project-caption"><strong>{item.title}</strong><span>EMAIL DESIGN ↗</span></span
         >

@@ -45,7 +45,6 @@
         Your brand has a story. Let’s give it an inbox moment. Share your ideas and your wish list—I’ll
         help turn them into emails with personality and purpose.
       </p>
-      <p class="contact-location">From Medellín, Colombia<br />to inboxes all over the world.</p>
     </div>
     <div class="contact-form-wrap">
       <form

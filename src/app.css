@@ -350,6 +350,7 @@ textarea:focus-visible {
   z-index: 3;
 }
 .phone {
+  container-type: inline-size;
   position: absolute;
   background: var(--ink);
   border: 7px solid var(--ink);
@@ -362,23 +363,25 @@ textarea:focus-visible {
   aspect-ratio: 0.475;
   width: clamp(170px, 17.2vw, 282px);
 }
-.phone::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  left: 35%;
-  width: 30%;
-  height: 17px;
-  background: var(--ink);
-  border-radius: 15px;
-  z-index: 1;
-}
 .phone-screen {
   width: 100%;
   height: 100%;
   border-radius: 25px;
   background-repeat: no-repeat;
   background-color: var(--cream);
+}
+.phone::after {
+  content: '';
+  position: absolute;
+  top: 4cqw;
+  left: 50%;
+  width: 28%;
+  height: 6cqw;
+  border-radius: 999px;
+  background: #000;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
 }
 .email-jewelry {
   position: relative;
@@ -394,14 +397,14 @@ textarea:focus-visible {
   background-repeat: no-repeat;
 }
 .email-skincare {
-  background-image: url('/assets/portfolio-2.jpg');
-  background-size: 506.2% auto;
-  background-position: 3.905% top;
+  background-image: url('/assets/crude-leave-the-soap.png');
+  background-size: 103.834% auto;
+  background-position: center -3.333cqw;
 }
 .email-pets {
-  background-image: url('/assets/portfolio-8.webp');
-  background-size: 540% auto;
-  background-position: 46% top;
+  background-image: url('/assets/little-beast-love-is-in-the-air.png');
+  background-size: 103.345% auto;
+  background-position: center -2.676cqw;
 }
 .phone-main {
   left: 41%;
@@ -460,10 +463,6 @@ textarea:focus-visible {
   font-family: var(--heading);
   font-size: 23px;
   line-height: 1.25;
-}
-.ticker-coral {
-  background: var(--coral);
-  color: var(--ink-strong);
 }
 .ticker-mint {
   background: var(--mint);
@@ -539,27 +538,20 @@ textarea:focus-visible {
   --intro-phone-width: 228px;
   width: var(--intro-phone-width);
   left: 50%;
-  top: calc(50% - 22px);
+  top: 50%;
   transform: translate(-50%, -50%) rotate(10deg);
-  border: 6px solid var(--ink);
-  padding: 3px;
-  border-radius: 34px;
+  border: 4px solid var(--ink);
+  padding: 1px;
+  border-radius: 35px;
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--cream) 12%, var(--ink)),
     12px 18px 24px color-mix(in srgb, var(--ink) 22%, transparent),
     25px 35px 50px color-mix(in srgb, var(--ink) 12%, transparent);
 }
 .phone-intro .phone-screen {
-  border-radius: 25px;
+  border-radius: 30px;
   overflow: hidden;
   background: var(--cream);
-}
-.phone.phone-intro::after {
-  width: 28%;
-  height: 13px;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .email-slideshow img {
   display: block;
@@ -567,18 +559,12 @@ textarea:focus-visible {
   height: 100%;
   object-fit: fill;
 }
-.visual-caption {
-  position: absolute;
-  left: 25px;
-  bottom: 23px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
 .intro-star {
   position: absolute;
-  left: -95px;
-  bottom: 45px;
+  left: -35px;
+  top: -24px;
+  width: 125px;
+  height: 125px;
   color: var(--pink);
   z-index: 2;
 }
@@ -604,6 +590,9 @@ textarea:focus-visible {
   display: block;
   width: 100%;
   height: 240px;
+}
+.service-wave-mobile {
+  display: none;
 }
 .service-wave text {
   fill: currentColor;
@@ -633,7 +622,7 @@ textarea:focus-visible {
 .services-copy {
   align-self: center;
   padding-bottom: 65px;
-  transform: translateY(20%);
+  transform: translate(-10%, 20%);
 }
 .services-copy > .eyebrow {
   margin-bottom: 18px;
@@ -646,7 +635,7 @@ textarea:focus-visible {
   font-size: 15px;
 }
 .services-clients {
-  grid-column: 1 / -1;
+  margin-top: 32px;
 }
 .services-clients .clients-label {
   font-size: 11px;
@@ -656,8 +645,8 @@ textarea:focus-visible {
 .client-names {
   color: var(--ink);
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
   align-items: center;
   justify-items: center;
   text-align: center;
@@ -736,7 +725,7 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12%;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 .service-number {
   color: var(--ink);
@@ -832,6 +821,10 @@ textarea:focus-visible {
   transition:
     opacity 0.2s,
     transform 0.2s;
+}
+.project-open svg {
+  width: 27px;
+  height: 27px;
 }
 .project-card:hover .project-open,
 .project-card:focus-visible .project-open {
@@ -950,11 +943,6 @@ textarea:focus-visible {
 .contact-copy > p {
   max-width: 430px;
   font-size: 17px;
-}
-.contact-copy .contact-location {
-  margin-top: 20px;
-  font-size: 12px;
-  line-height: 1.8;
 }
 .form-field {
   margin-bottom: 22px;
@@ -1154,9 +1142,9 @@ textarea:focus-visible {
     --intro-phone-width: 188px;
   }
   .intro-star {
-    left: -60px;
-    width: 130px;
-    height: 130px;
+    left: -25px;
+    width: 100px;
+    height: 100px;
   }
   .services {
     padding-left: 7%;
@@ -1214,15 +1202,16 @@ textarea:focus-visible {
     font-size: 15px;
   }
   .site-header {
-    height: 70px;
+    height: 80px;
+    gap: 12px;
     position: relative;
     z-index: 20;
   }
   .brand {
-    font-size: 17px;
+    font-size: clamp(18px, 5.6vw, 28px);
   }
   .brand .brand-emoji {
-    font-size: 25px;
+    font-size: 1.4em;
   }
   .menu-toggle {
     display: flex;
@@ -1273,7 +1262,7 @@ textarea:focus-visible {
   }
   .hero-stage {
     height: auto;
-    aspect-ratio: 1.25;
+    aspect-ratio: 0.72;
     border-radius: 7px;
   }
   .phone {
@@ -1285,28 +1274,26 @@ textarea:focus-visible {
       14px 15px 20px var(--shadow);
     width: 29%;
   }
-  .phone::after {
-    top: 7px;
-    height: 9px;
-  }
   .phone-screen {
     border-radius: 15px;
   }
   .phone-main {
-    left: 37%;
-    top: 10%;
-    width: 31%;
-    transform: rotate(-8deg);
+    left: 29%;
+    top: 12%;
+    width: 42%;
+    transform: rotate(-6deg);
   }
   .phone-left {
-    left: 15%;
-    top: 18%;
-    transform: rotate(-20deg) scale(0.86);
+    left: 8%;
+    top: 35%;
+    width: 35%;
+    transform: rotate(-12deg);
   }
   .phone-right {
-    left: 64%;
-    top: 18%;
-    transform: rotate(15deg) scale(0.86);
+    left: 57%;
+    top: 35%;
+    width: 35%;
+    transform: rotate(12deg);
   }
   .stage-note {
     left: 13px;
@@ -1352,11 +1339,20 @@ textarea:focus-visible {
     padding-bottom: 65px;
   }
   .intro {
+    container-type: inline-size;
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 32px;
   }
   .intro-copy {
+    display: contents;
     max-width: none;
+  }
+  .intro h2 {
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+  .intro-description {
+    grid-row: 3;
   }
   .intro-copy .eyebrow {
     font-size: 10px;
@@ -1365,52 +1361,50 @@ textarea:focus-visible {
     max-width: none;
   }
   .intro-visual {
+    grid-row: 2;
     height: 410px;
     margin: 0 6% 15px;
   }
   .phone.phone-intro {
     --intro-phone-width: 158px;
-    border-width: 5px;
-    padding: 2px;
+    border-width: 3px;
+    padding: 1px;
     border-radius: 25px;
   }
   .phone-intro .phone-screen {
-    border-radius: 18px;
-  }
-  .phone.phone-intro::after {
-    top: 10px;
-    height: 10px;
+    border-radius: 21px;
   }
   .intro-star {
-    left: -40px;
-    bottom: 45px;
-    width: 130px;
-    height: 130px;
-  }
-  .visual-caption {
-    left: 18px;
-    font-size: 8px;
+    left: -12px;
+    top: -12px;
+    width: 72px;
+    height: 72px;
   }
   .services {
     padding: 90px var(--gutter) 75px;
   }
   .service-wave {
-    top: 0;
+    top: 26px;
   }
   .service-wave svg {
-    width: 150%;
-    max-width: none;
-    height: 170px;
+    display: none;
   }
-  .service-wave text {
-    font-size: 85px;
+  .service-wave-mobile {
+    display: block;
+    font-family: var(--heading);
+    font-size: clamp(24px, 7.5vw, 42px);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    text-align: center;
   }
   .services-lead {
     grid-template-columns: 1fr;
     gap: 45px;
   }
   .service-visual {
-    max-width: 83%;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
     margin-bottom: 0;
   }
   .service-visual img {
@@ -1431,10 +1425,6 @@ textarea:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
   }
-  .client-names .progs-logo {
-    grid-column: 1 / -1;
-    width: calc((100% - 28px) / 2);
-  }
   .client-names > span {
     font-size: 11px;
   }
@@ -1444,7 +1434,7 @@ textarea:focus-visible {
   .service-list {
     grid-template-columns: 1fr;
     gap: 37px;
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .service-list h3 {
     font-size: 29px;
@@ -1460,6 +1450,9 @@ textarea:focus-visible {
     padding-bottom: 70px;
   }
   .work-heading {
+    font-size: 6.1vw;
+    gap: 0.3em;
+    padding-inline: 3vw;
     margin-bottom: 25px;
   }
   .work-grid {
@@ -1480,11 +1473,6 @@ textarea:focus-visible {
   .project-open {
     opacity: 1;
     transform: none;
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
-    bottom: 10px;
-    right: 10px;
   }
   .work-outro {
     margin-top: 55px;
@@ -1525,10 +1513,6 @@ textarea:focus-visible {
   }
   .contact-copy > p {
     font-size: 15px;
-  }
-  .contact-copy .contact-location {
-    font-size: 11px;
-    margin-top: 20px;
   }
   .form-field {
     margin-bottom: 20px;
@@ -1613,12 +1597,6 @@ textarea:focus-visible {
   .work-outro h3 {
     font-size: 34px;
   }
-  .brand {
-    font-size: 15px;
-  }
-  .site-header {
-    gap: 20px;
-  }
 }
 
 .brand-lockup {
@@ -1641,5 +1619,147 @@ textarea:focus-visible {
   }
   .brand-tagline {
     flex-basis: 100%;
+  }
+}
+
+/* Titanium-style edges and physical controls stay outside the email display. */
+@media (min-width: 701px) {
+  .hero-stage .phone {
+    border-width: 4px;
+    padding: 1px;
+  }
+  .hero-stage .phone-screen {
+    border-radius: 30px;
+  }
+  .hero-stage .phone-hardware {
+    inset: -4px;
+  }
+}
+.phone,
+.hero-stage .phone,
+.phone.phone-intro {
+  overflow: visible;
+  border-color: #222526;
+  background: #222526;
+  box-shadow:
+    0 0 0 1px #737976,
+    0 0 0 2px #e9eae5,
+    -3px 1px 0 3px #777e7b,
+    -5px 2px 0 3px #d5d8d1,
+    -6px 3px 0 3px #a1a6a0,
+    -12px 18px 20px #20272028,
+    -24px 32px 40px #20272020;
+}
+.phone-screen {
+  position: relative;
+  overflow: hidden;
+}
+.phone-hardware {
+  position: absolute;
+  inset: -7px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.phone-intro .phone-hardware {
+  inset: -4px;
+}
+.phone-hardware::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 1px solid #ffffff80;
+  border-right-color: #ffffff30;
+  border-bottom-color: #101a1850;
+  border-radius: inherit;
+}
+.phone-button {
+  position: absolute;
+  left: -7px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #545d59, #c9cec5 42%, #8a918a 75%, #434a46);
+  box-shadow:
+    -1px 0 0 #535a54,
+    0 1px 1px #17201c66;
+}
+.phone-action {
+  top: 16%;
+  height: 4%;
+}
+.phone-volume-up {
+  top: 24%;
+  height: 7%;
+}
+.phone-volume-down {
+  top: 33%;
+  height: 7%;
+}
+.phone-power {
+  left: auto;
+  right: -3px;
+  top: 26%;
+  height: 11%;
+}
+.phone-camera {
+  left: auto;
+  right: -3px;
+  top: 64%;
+  height: 7%;
+  width: 3px;
+}
+.phone-antenna {
+  position: absolute;
+  left: -5px;
+  right: -2px;
+  height: 2px;
+  border-left: 5px solid #5b625b;
+  border-right: 3px solid #5b625b;
+}
+.phone-antenna-top {
+  top: 11%;
+}
+.phone-antenna-bottom {
+  bottom: 11%;
+}
+@media (max-width: 700px) {
+  .hero-stage .phone {
+    border-width: 2.5px;
+    padding: 1px;
+    box-shadow:
+      0 0 0 0.5px #737976,
+      0 0 0 1px #e9eae5,
+      -1.5px 1px 0 1.5px #777e7b,
+      -2.5px 1.5px 0 1.5px #d5d8d1,
+      -8px 12px 16px #20272028;
+  }
+  .hero-stage .phone-screen {
+    border-radius: 17.5px;
+  }
+  .hero-stage .phone-hardware {
+    inset: -2.5px;
+  }
+  .hero-stage .phone-button {
+    width: 2px;
+    left: -4px;
+  }
+  .hero-stage .phone-power,
+  .hero-stage .phone-camera {
+    left: auto;
+    right: -2px;
+  }
+  .phone-hardware {
+    inset: -4px;
+  }
+  .phone-intro .phone-hardware {
+    inset: -3px;
+  }
+  .phone-button {
+    width: 3px;
+    left: -6px;
+  }
+  .phone-power,
+  .phone-camera {
+    left: auto;
+    right: -3px;
   }
 }

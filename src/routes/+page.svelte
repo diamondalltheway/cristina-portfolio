@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PhoneHardware from '$lib/components/PhoneHardware.svelte';
   import SiteHeader from '$lib/components/SiteHeader.svelte';
   import WorkGallery from '$lib/components/WorkGallery.svelte';
   import ContactSection from '$lib/components/ContactSection.svelte';
@@ -25,10 +26,13 @@
       />
       <feFlood flood-color="var(--ink)" />
       <feComposite in2="logo-mask" operator="in" />
-    </filter><symbol id="asterisk-solid" viewBox="160 100 740 840"
+    </filter><symbol id="asterisk-intro-outline" viewBox="160 100 740 840"
       ><path
         d="M540 138 603 125Q625 120 620 143L593 348Q588 371 608 360L764 231Q780 220 793 233L833 263Q846 274 831 293L755 380 665 465Q649 480 664 491L871 617Q891 629 875 642L832 672Q820 682 801 676L638 617Q616 607 627 629L718 857Q726 876 708 882L649 906Q628 917 619 897L530 737Q516 712 508 740L454 900Q448 915 430 917 410 920 413 899L423 627Q429 599 408 614L248 720Q231 735 219 721L190 691Q177 677 192 666L382 535Q406 520 384 509L205 419Q185 411 203 393 213 379 236 386L365 411Q389 416 381 394L327 241Q315 216 340 209L368 202Q387 194 398 217L458 327Q480 358 486 338L525 159Q528 141 540 138Z"
-        fill="currentColor"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="12"
+        stroke-linejoin="round"
       /></symbol
     ><symbol id="asterisk-outline" viewBox="130 120 410 440"
       ><path
@@ -59,22 +63,25 @@
     <div class="hero-stage">
       <div class="stage-sculpture" aria-hidden="true"></div>
       <p class="stage-note">A LITTLE STRATEGY.<br />A LOT OF PERSONALITY.</p>
-      <div
-        class="phone phone-left"
-        role="img"
-        aria-label="Cristina's colorful pet clothing email design"
-      >
-        <div class="phone-screen email-pets"></div>
+      <div class="phone phone-left" role="img" aria-label="Cristina's Crude skincare email design">
+        <PhoneHardware />
+        <div class="phone-screen email-skincare"></div>
       </div>
       <div
         class="phone phone-main"
         role="img"
         aria-label="Arcian holiday gifts email designed by Cristina, displayed on a phone"
       >
+        <PhoneHardware />
         <div class="phone-screen email-jewelry"></div>
       </div>
-      <div class="phone phone-right" role="img" aria-label="Cristina's Crude skincare email design">
-        <div class="phone-screen email-skincare"></div>
+      <div
+        class="phone phone-right"
+        role="img"
+        aria-label="Cristina's Little Beast Love Is in the Air email design"
+      >
+        <PhoneHardware />
+        <div class="phone-screen email-pets"></div>
       </div>
       <a class="stage-link" href="#work" aria-label="Explore my email designs"
         ><svg><use href="#arrow" /></svg></a
@@ -82,36 +89,39 @@
     </div>
     <h1 id="hero-heading">HEY, I’M CRISTINA</h1>
   </section>
-  <div class="ticker ticker-coral" aria-label="Emails with personality">
+  <div class="ticker ticker-mint" aria-label="Emails with personality">
     <div class="ticker-track" aria-hidden="true">
       <span
-        >EMAILS WITH PERSONALITY <b>✦</b> EMAILS WITH PERSONALITY <b>✦</b> EMAILS WITH PERSONALITY
-        <b>✦</b></span
+        >EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY
+        <b>✉️</b></span
       ><span
-        >EMAILS WITH PERSONALITY <b>✦</b> EMAILS WITH PERSONALITY <b>✦</b> EMAILS WITH PERSONALITY
-        <b>✦</b></span
+        >EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY
+        <b>✉️</b></span
       >
     </div>
   </div>
   <section class="intro section-pad" aria-labelledby="intro-heading">
     <div class="intro-copy">
-      <p class="eyebrow">FROM MEDELLÍN, WITH LOVE 🇨🇴</p>
       <h2 id="intro-heading">
         <span>YOUR NEXT EMAIL</span><span>DESERVES</span><span>TO STAND OUT.</span>
       </h2>
-      <p>
-        I’m Cristina, a graphic and email designer working with clients all over the globe. I turn
-        brand stories into visually engaging emails that feel as good as they look.
-      </p>
-      <p>
-        With 7+ years in marketing, visual design, and branding, I bring creativity and a little
-        strategy to every inbox. Clear communication, thoughtful details, and deadlines met? Always.
-      </p>
-      <a class="pill pill-outline" href="#work">VIEW MY WORK <span>→</span></a>
+      <div class="intro-description">
+        <p>
+          I’m Cristina, a graphic and email designer working with clients all over the globe. I turn
+          brand stories into visually engaging emails that feel as good as they look.
+        </p>
+        <p>
+          With 7+ years in marketing, visual design, and branding, I bring creativity and a little
+          strategy to every inbox. Clear communication, thoughtful details, and deadlines met?
+          Always.
+        </p>
+        <a class="pill pill-outline" href="#work">VIEW MY WORK <span>→</span></a>
+      </div>
     </div>
     <div class="intro-visual">
       <div class="intro-backdrop" aria-hidden="true"><div class="stage-sculpture"></div></div>
       <div class="phone phone-intro">
+        <PhoneHardware />
         <div class="phone-screen email-slideshow">
           <img
             src="/assets/email-designs-animated.svg"
@@ -122,14 +132,14 @@
           />
         </div>
       </div>
-      <span class="visual-caption">SMALL SCREENS. BIG IDEAS.</span><svg
-        class="starburst intro-star"
-        aria-hidden="true"><use href="#asterisk-solid" /></svg
+      <svg class="starburst intro-star" aria-hidden="true"
+        ><use href="#asterisk-intro-outline" /></svg
       >
     </div>
   </section>
   <section id="services" class="services" aria-labelledby="services-heading">
     <div class="service-wave" aria-hidden="true">
+      <span class="service-wave-mobile">✦ MY SERVICES ✦</span>
       <svg viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid slice"
         ><defs><path id="wave-path" d="M-250 140 Q100 260 450 130 T1150 130 T1850 130" /></defs
         ><text
@@ -142,10 +152,10 @@
     <div class="services-lead">
       <div class="service-visual">
         <img
-          src="/assets/earth-harbor-emails.gif"
+          src="/assets/arcian-email-campaigns.gif"
           width="1112"
           height="1112"
-          alt="Animated collection of Cristina's Earth Harbor email campaigns"
+          alt="Animated collection of Cristina's Arcian jewelry email campaigns"
           loading="lazy"
         />
       </div>
@@ -157,43 +167,42 @@
           distinctive design that catches the eye, tells your story, and gives your customers a
           reason to click.
         </p>
-      </div>
-      <div class="services-clients">
-        <p class="eyebrow clients-label">CLIENTS/AGENCIES I'VE WORKED WITH</p>
-        <div class="client-names">
-          <span class="skyro-logo"
-            ><img
-              src="/assets/skyro-digital.svg"
-              alt="Skyro Digital"
-              width="330"
-              height="68"
-            /></span
-          ><span class="mineral-logo"
-            ><img
-              src="/assets/mineral-logo.png"
-              alt="Mineral"
-              width="962"
-              height="324"
-              loading="lazy"
-            /></span
-          ><span class="earth-logo"
-            ><img
-              src="/assets/earth-harbor-logo.png"
-              alt="Earth Harbor"
-              width="962"
-              height="348"
-              loading="lazy"
-            /></span
-          ><span>SALES FLOW<br /><small>MARKETING</small></span>
-          <span class="progs-logo"
-            ><img
-              src="/assets/progs-email-marketing.png"
-              alt="PROGS Email Marketing"
-              width="704"
-              height="250"
-              loading="lazy"
-            /></span
-          >
+        <div class="services-clients">
+          <p class="eyebrow clients-label">CLIENTS/AGENCIES I'VE WORKED WITH</p>
+          <div class="client-names">
+            <span class="skyro-logo"
+              ><img
+                src="/assets/skyro-digital.svg"
+                alt="Skyro Digital"
+                width="330"
+                height="68"
+              /></span
+            ><span class="mineral-logo"
+              ><img
+                src="/assets/mineral-logo.png"
+                alt="Mineral"
+                width="962"
+                height="324"
+                loading="lazy"
+              /></span
+            ><span class="earth-logo"
+              ><img
+                src="/assets/earth-harbor-logo.png"
+                alt="Earth Harbor"
+                width="962"
+                height="348"
+                loading="lazy"
+              /></span
+            ><span class="progs-logo"
+              ><img
+                src="/assets/progs-email-marketing.png"
+                alt="PROGS Email Marketing"
+                width="704"
+                height="250"
+                loading="lazy"
+              /></span
+            >
+          </div>
         </div>
       </div>
     </div>
