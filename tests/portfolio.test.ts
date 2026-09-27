@@ -38,8 +38,8 @@ test('responsive Svelte components preserve layout, navigation, and keyboard beh
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
       width,
     );
-    await expect(page.locator('.hero')).toHaveCSS('background-color', 'rgb(32, 6, 3)');
-    await expect(page.locator('h1')).toHaveCSS('color', 'rgb(254, 171, 218)');
+    await expect(page.locator('.hero')).toHaveCSS('background-color', 'rgb(65, 65, 65)');
+    await expect(page.locator('h1')).toHaveCSS('color', 'rgb(246, 165, 223)');
     await expect(page.locator('.project-card')).toHaveCount(8);
     if (width <= 700) {
       const menu = page.locator('.menu-toggle');

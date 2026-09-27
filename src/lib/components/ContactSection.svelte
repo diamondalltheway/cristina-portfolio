@@ -45,7 +45,7 @@
         Ready for emails that feel unmistakably you? Tell me a little about your brand and what you
         have in mind. Let’s make something worth opening.
       </p>
-      <svg class="starburst contact-star" aria-hidden="true"><use href="#burst" /></svg>
+      <svg class="starburst contact-star" aria-hidden="true"><use href="#asterisk-solid" /></svg>
       <p class="contact-location">From Medellín, Colombia<br />to inboxes all over the world.</p>
     </div>
     <div class="contact-form-wrap">

@@ -20,11 +20,18 @@
   font-display: swap;
 }
 :root {
-  --ink: #200603;
-  --brown: #360a05;
-  --pink: #feabda;
-  --orange: #ff683b;
-  --cream: #f5f2e9;
+  /* Palette from the disco-print reference. */
+  --ink: #414141;
+  --ink-strong: color-mix(in srgb, var(--ink) 74%, black);
+  --pink: #f6a5df;
+  --coral: #f76b60;
+  --mint: #43c59a;
+  --cream: #f1ece3;
+  --border: color-mix(in srgb, var(--ink) 55%, transparent);
+  --border-subtle: color-mix(in srgb, var(--ink) 18%, transparent);
+  --shadow: color-mix(in srgb, var(--ink) 30%, transparent);
+  --surface: color-mix(in srgb, var(--cream) 92%, var(--ink));
+  --error: color-mix(in srgb, var(--coral) 45%, var(--ink));
   --gutter: 3vw;
   --heading: 'Archivo Black', Arial, sans-serif;
   --body: Inter, Arial, sans-serif;
@@ -43,6 +50,10 @@ body {
   font-family: var(--body);
   font-size: 17px;
   line-height: 1.55;
+}
+::selection {
+  background: var(--pink);
+  color: var(--ink);
 }
 body.modal-open,
 body.menu-open {
@@ -108,7 +119,7 @@ button:focus-visible {
 }
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--brown);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 [hidden] {
@@ -149,6 +160,7 @@ textarea:focus-visible {
   display: block;
   width: 180px;
   height: 180px;
+  pointer-events: none;
 }
 .pill {
   min-height: 57px;
@@ -178,28 +190,28 @@ textarea:focus-visible {
   transform: translateY(-2px);
 }
 .pill-outline {
-  border-color: var(--brown);
-  color: var(--brown);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 .pill-outline:hover {
-  background: var(--brown);
+  background: var(--ink);
   color: var(--cream);
 }
 .pill-dark {
-  background: var(--brown);
+  background: var(--ink);
   color: var(--cream);
 }
 .pill-dark:hover {
   background: var(--pink);
-  color: var(--brown);
-  border-color: var(--brown);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 .pill-pink {
   background: var(--pink);
-  color: var(--brown);
+  color: var(--ink);
 }
 .pill-pink:hover {
-  background: var(--cream);
+  background: var(--mint);
 }
 /* Masthead and email mockups, built from Cristina's original work. */
 .site-header {
@@ -266,13 +278,22 @@ textarea:focus-visible {
   overflow: hidden;
   border-radius: 12px;
   background:
-    radial-gradient(ellipse at 74% 95%, #64504f 0, transparent 49%),
-    radial-gradient(ellipse at 16% 10%, #4a2a28 0, transparent 50%), #110705;
+    radial-gradient(
+      ellipse at 74% 95%,
+      color-mix(in srgb, var(--mint) 24%, var(--ink)) 0,
+      transparent 49%
+    ),
+    radial-gradient(
+      ellipse at 16% 10%,
+      color-mix(in srgb, var(--pink) 18%, var(--ink)) 0,
+      transparent 50%
+    ),
+    var(--ink);
   isolation: isolate;
 }
 .stage-orbit {
   position: absolute;
-  border: 1px solid #feabda40;
+  border: 1px solid color-mix(in srgb, var(--pink) 25%, transparent);
   width: 75%;
   height: 115%;
   border-radius: 50%;
@@ -280,8 +301,8 @@ textarea:focus-visible {
   top: 10%;
   transform: rotate(-25deg);
   box-shadow:
-    0 0 0 60px #feabda05,
-    0 0 0 120px #feabda05;
+    0 0 0 60px color-mix(in srgb, var(--pink) 2%, transparent),
+    0 0 0 120px color-mix(in srgb, var(--pink) 2%, transparent);
 }
 .stage-note {
   position: absolute;
@@ -303,12 +324,12 @@ textarea:focus-visible {
 }
 .phone {
   position: absolute;
-  background: #131211;
-  border: 7px solid #171514;
+  background: var(--ink);
+  border: 7px solid var(--ink);
   border-radius: 35px;
   box-shadow:
-    9px 10px 0 #030303,
-    25px 25px 35px #0005;
+    9px 10px 0 var(--ink),
+    25px 25px 35px var(--shadow);
   overflow: hidden;
   padding: 4px;
   aspect-ratio: 0.475;
@@ -321,7 +342,7 @@ textarea:focus-visible {
   left: 35%;
   width: 30%;
   height: 17px;
-  background: #101010;
+  background: var(--ink);
   border-radius: 15px;
   z-index: 1;
 }
@@ -386,7 +407,8 @@ textarea:focus-visible {
   transform: rotate(-45deg);
 }
 .stage-link:hover {
-  background: var(--pink);
+  background: var(--mint);
+  border-color: var(--mint);
   color: var(--ink);
 }
 .hero h1 {
@@ -404,8 +426,15 @@ textarea:focus-visible {
   font-size: 23px;
   line-height: 1.25;
 }
-.ticker-orange {
-  background: var(--orange);
+.ticker-coral {
+  background: var(--coral);
+  color: var(--ink-strong);
+}
+.ticker-mint {
+  background: var(--mint);
+  color: var(--ink);
+}
+.ticker.ticker-mint b {
   color: var(--ink);
 }
 .ticker-track {
@@ -455,25 +484,47 @@ textarea:focus-visible {
 .intro-visual {
   height: 580px;
   border-radius: 9px;
-  background: #e7e0d4;
+  background: var(--mint);
   position: relative;
   isolation: isolate;
   background-image: linear-gradient(
     150deg,
     transparent 67%,
-    #d8cbbb 67.2%,
-    #ece4d7 68%,
-    #e7e0d4 90%
+    color-mix(in srgb, var(--mint) 85%, var(--ink)) 67.2%,
+    color-mix(in srgb, var(--mint) 80%, var(--cream)) 68%,
+    var(--mint) 90%
   );
 }
-.phone-intro {
-  width: 245px;
-  left: calc(50% - 122px);
-  top: 42px;
-  transform: rotate(12deg);
+.phone.phone-intro {
+  --intro-phone-width: 228px;
+  width: var(--intro-phone-width);
+  left: 50%;
+  top: 26px;
+  transform: translateX(-50%) rotate(10deg);
+  border: 6px solid var(--ink);
+  padding: 3px;
+  border-radius: 34px;
   box-shadow:
-    8px 8px 0 #0d0d0b,
-    28px 20px 22px #51382030;
+    3px 4px 0 var(--ink),
+    12px 18px 24px color-mix(in srgb, var(--ink) 22%, transparent),
+    25px 35px 50px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.phone-intro .phone-screen {
+  border-radius: 25px;
+  overflow: hidden;
+  padding-top: 29px;
+  background: var(--cream);
+}
+.phone.phone-intro::after {
+  width: 28%;
+  height: 13px;
+  top: 12px;
+  left: 36%;
+}
+.email-stack img {
+  width: 100%;
+  max-width: none;
+  height: auto;
 }
 .visual-caption {
   position: absolute;
@@ -487,12 +538,13 @@ textarea:focus-visible {
   position: absolute;
   left: -95px;
   bottom: 45px;
-  color: var(--orange);
+  color: var(--coral);
   z-index: 2;
 }
-/* Services and the orange-to-cream paper edge. */
+/* Services and the coral-to-cream paper edge. */
 .services {
-  background: var(--orange);
+  background: var(--coral);
+  color: var(--ink-strong);
   position: relative;
   padding: 70px 10.8% 100px;
   isolation: isolate;
@@ -598,7 +650,7 @@ textarea:focus-visible {
   margin-top: 100px;
 }
 .service-number {
-  color: var(--ink);
+  color: var(--ink-strong);
   font-size: 12px;
   display: block;
   margin-bottom: 16px;
@@ -659,7 +711,7 @@ textarea:focus-visible {
   overflow: hidden;
   display: block;
   border-radius: 8px;
-  background: #eae4d6;
+  background: var(--surface);
   aspect-ratio: 1.685;
 }
 .project-image img {
@@ -755,49 +807,33 @@ textarea:focus-visible {
 }
 .about p:not(.eyebrow) {
   font-size: 16px;
-  color: #f0c6d3;
+  color: var(--cream);
 }
 .about .pill {
   margin-top: 35px;
 }
 .about-art {
   position: relative;
-  min-height: 550px;
-  background: #310e0a;
+  align-self: center;
+  background: var(--mint);
+  color: var(--ink);
   border-radius: 9px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 40px;
   overflow: hidden;
 }
-.about-years {
-  font-family: var(--heading);
-  font-size: clamp(140px, 20vw, 300px) !important;
-  color: var(--pink) !important;
-  line-height: 1;
-  letter-spacing: -0.09em;
-}
-.about-years span {
-  font-size: 0.65em;
-  vertical-align: top;
-  display: inline-block;
-  margin-top: 20px;
-}
-.about-art-label {
-  font-family: var(--heading);
-  font-size: clamp(20px, 2.2vw, 32px) !important;
-  color: var(--pink) !important;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  margin-top: 10px;
+.about-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
 }
 .about-location {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
-  margin-top: 65px;
+  padding: 24px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -807,15 +843,6 @@ textarea:focus-visible {
   font-size: 1.65em;
   line-height: 1;
   vertical-align: -0.12em;
-}
-.about-star {
-  position: absolute;
-  right: -26px;
-  top: -32px;
-  color: var(--orange);
-  width: 200px;
-  height: 200px;
-  transform: rotate(12deg);
 }
 .contact {
   padding-top: 105px;
@@ -841,7 +868,7 @@ textarea:focus-visible {
   font-size: 17px;
 }
 .contact-star {
-  color: var(--orange);
+  color: var(--coral);
   margin: 45px 0 25px;
   width: 145px;
   height: 145px;
@@ -869,7 +896,7 @@ textarea:focus-visible {
 .form-field input,
 .form-field textarea {
   width: 100%;
-  border: 1px solid #360a0570;
+  border: 1px solid var(--border);
   border-radius: 0;
   background: transparent;
   padding: 14px 15px;
@@ -897,7 +924,7 @@ textarea:focus-visible {
 }
 #form-status.error {
   font-size: 14px;
-  color: #a52b14;
+  color: var(--error);
 }
 #form-status:focus {
   outline: none;
@@ -905,7 +932,7 @@ textarea:focus-visible {
 .site-footer {
   padding-top: 40px;
   padding-bottom: 20px;
-  border-top: 1px solid #360a052b;
+  border-top: 1px solid var(--border-subtle);
 }
 .footer-top {
   display: grid;
@@ -947,7 +974,7 @@ textarea:focus-visible {
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  border-top: 1px solid #360a052b;
+  border-top: 1px solid var(--border-subtle);
   padding-top: 18px;
   margin-top: 20px;
   font-size: 8px;
@@ -965,7 +992,7 @@ textarea:focus-visible {
   overscroll-behavior: contain;
 }
 #project-dialog::backdrop {
-  background: #160502d9;
+  background: color-mix(in srgb, var(--ink) 85%, transparent);
   backdrop-filter: blur(5px);
 }
 .dialog-top {
@@ -977,7 +1004,7 @@ textarea:focus-visible {
 .dialog-close {
   width: 44px;
   height: 44px;
-  border: 1px solid var(--brown);
+  border: 1px solid var(--ink);
   border-radius: 50%;
   background: transparent;
   color: var(--ink);
@@ -991,7 +1018,7 @@ textarea:focus-visible {
   margin: 18px 0 25px;
 }
 .dialog-image-wrap {
-  background: #eae4d6;
+  background: var(--surface);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -1055,10 +1082,9 @@ textarea:focus-visible {
   .intro-visual {
     height: 480px;
   }
-  .phone-intro {
-    width: 200px;
-    left: calc(50% - 100px);
-    top: 30px;
+  .phone.phone-intro {
+    --intro-phone-width: 188px;
+    top: 20px;
   }
   .intro-star {
     left: -60px;
@@ -1083,10 +1109,6 @@ textarea:focus-visible {
   .about,
   .contact-grid {
     gap: 9%;
-  }
-  .about-art {
-    padding: 25px;
-    min-height: 470px;
   }
   .about-location {
     flex-direction: column;
@@ -1199,8 +1221,8 @@ textarea:focus-visible {
     padding: 3px;
     border-radius: 21px;
     box-shadow:
-      5px 5px 0 #030303,
-      14px 15px 20px #0005;
+      5px 5px 0 var(--ink),
+      14px 15px 20px var(--shadow);
     width: 29%;
   }
   .phone::after {
@@ -1288,20 +1310,20 @@ textarea:focus-visible {
     height: 410px;
     margin: 0 6% 15px;
   }
-  .phone-intro {
-    width: 175px;
-    left: calc(50% - 88px);
-    top: 23px;
-    border-width: 6px;
-    padding: 3px;
-    border-radius: 27px;
+  .phone.phone-intro {
+    --intro-phone-width: 158px;
+    top: 16px;
+    border-width: 5px;
+    padding: 2px;
+    border-radius: 25px;
   }
   .phone-intro .phone-screen {
     border-radius: 18px;
+    padding-top: 23px;
   }
-  .phone-intro::after {
+  .phone.phone-intro::after {
     top: 10px;
-    height: 12px;
+    height: 10px;
   }
   .intro-star {
     left: -40px;
@@ -1435,24 +1457,10 @@ textarea:focus-visible {
   .about p:not(.eyebrow) {
     font-size: 15px;
   }
-  .about-art {
-    min-height: 370px;
-    padding: 30px;
-  }
-  .about-years {
-    font-size: 190px !important;
-  }
-  .about-art-label {
-    font-size: 26px !important;
-  }
   .about-location {
     flex-direction: row;
-    margin-top: 30px;
+    padding: 20px;
     font-size: 10px;
-  }
-  .about-star {
-    width: 150px;
-    height: 150px;
   }
   .contact > h2 {
     font-size: 9.5vw;
