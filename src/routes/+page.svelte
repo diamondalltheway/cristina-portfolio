@@ -133,10 +133,16 @@
         </p>
         <p class="eyebrow clients-label">A FEW CLIENTS I’VE WORKED WITH</p>
         <div class="client-names">
-          <span>SKYRO<br /><small>DIGITAL</small></span><span class="mineral-logo">mineral.io</span
-          ><span class="earth-logo">EARTH<br />HARBOR</span><span
-            >SALES FLOW<br /><small>MARKETING</small></span
-          >
+          <span class="skyro-logo"
+            ><img
+              src="/assets/skyro-digital.svg"
+              alt="Skyro Digital"
+              width="330"
+              height="68"
+            /></span
+          ><span class="mineral-logo">mineral.io</span><span class="earth-logo"
+            >EARTH<br />HARBOR</span
+          ><span>SALES FLOW<br /><small>MARKETING</small></span>
         </div>
       </div>
     </div>
@@ -172,13 +178,12 @@
         Hey there! I’m Cristina, from Medellín, Colombia — working with clients all over the globe.
       </p>
       <p>
-        For the past 7+ years, I’ve focused my career on marketing, visual design, and branding,
+        For more than seven years, I’ve focused my career on marketing, visual design, and branding,
         with an emphasis on creating emails that convert.
       </p>
       <p>
         I pride myself on understanding what a client needs and delivering thoughtful work with
-        minimal direction. I value clear communication, and your deadlines are a top priority of
-        mine.
+        minimal direction. I value clear communication, and your deadlines are my priority.
       </p>
       <a class="pill pill-pink" href="#contact">SAY HELLO <span>→</span></a>
     </div>
@@ -187,7 +192,8 @@
       <p class="about-years">7<span>+</span></p>
       <p class="about-art-label">YEARS OF IDEAS.<br />ENDLESS POSSIBILITIES.</p>
       <div class="about-location">
-        <span>BASED IN MEDELLÍN 🇨🇴</span><span>CREATING EVERYWHERE 🌎</span>
+        <span>BASED IN MEDELLÍN <span class="location-emoji">🇨🇴</span></span>
+        <span>CREATING FOR BRANDS EVERYWHERE <span class="location-emoji">🌎</span></span>
       </div>
     </div>
   </section>

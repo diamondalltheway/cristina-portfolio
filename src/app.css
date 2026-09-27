@@ -213,13 +213,20 @@ textarea:focus-visible {
   color: var(--pink);
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   font-family: var(--heading);
   font-size: 23px;
   letter-spacing: -0.035em;
   white-space: nowrap;
 }
 .brand span {
-  font-size: 21px;
+  display: inline-block;
+  font-size: 32px;
+  line-height: 1;
+  /* Center the visible emoji artwork with the uppercase letterforms. */
+  transform: translateY(-0.14em);
 }
 .site-header nav {
   display: flex;
@@ -564,6 +571,11 @@ textarea:focus-visible {
   font-size: 13px;
   letter-spacing: -0.04em;
 }
+.client-names .skyro-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .client-names small {
   font-family: var(--body);
   font-size: 8px;
@@ -782,12 +794,19 @@ textarea:focus-visible {
 }
 .about-location {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
   margin-top: 65px;
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
+}
+.location-emoji {
+  display: inline-block;
+  font-size: 1.65em;
+  line-height: 1;
+  vertical-align: -0.12em;
 }
 .about-star {
   position: absolute;
@@ -1121,7 +1140,7 @@ textarea:focus-visible {
     font-size: 17px;
   }
   .brand span {
-    font-size: 17px;
+    font-size: 25px;
   }
   .menu-toggle {
     display: flex;
@@ -1429,7 +1448,7 @@ textarea:focus-visible {
   .about-location {
     flex-direction: row;
     margin-top: 30px;
-    font-size: 7px;
+    font-size: 10px;
   }
   .about-star {
     width: 150px;
