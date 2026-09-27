@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A locally hosted reproduction of Cristina Lalinde's portfolio.",
+  "description": "Cristina Lalinde's graphic and email design portfolio, inspired by Janna Lynn Design.",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
@@ -11,7 +11,7 @@
     "test:browser": "node scripts/check-browser.mjs"
   },
   "engines": {
-    "node": ">=22"
+    "node": "24.x"
   },
   "devDependencies": {
     "playwright": "^1.63.0"
