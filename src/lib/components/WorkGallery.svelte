@@ -61,7 +61,7 @@
 
 <section id="work" class="work" aria-labelledby="work-heading">
   <h2 id="work-heading" class="work-heading">
-    MY WORK <span aria-hidden="true">✦ MY WORK ✦ MY WORK</span>
+    <span aria-hidden="true">✦</span> BEST EMAIL DESIGNS <span aria-hidden="true">✦</span>
   </h2>
   <div class="work-grid section-inset">
     {#each projects as item, index (item.src)}

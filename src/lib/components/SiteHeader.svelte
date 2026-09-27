@@ -45,9 +45,12 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <header class="site-header">
-  <a class="brand" href="#home" aria-label="Cristina Lalinde, home"
-    >CRISTINA LALINDE <span>🐅</span></a
-  >
+  <div class="brand-lockup">
+    <a class="brand" href="#home" aria-label="Cristina Lalinde, home"
+      >CRISTINA LALINDE <span class="brand-emoji">🐅</span></a
+    >
+    <span class="brand-tagline">EXPERT EMAIL DESIGNER</span>
+  </div>
   <button
     bind:this={menuButton}
     class="menu-toggle"

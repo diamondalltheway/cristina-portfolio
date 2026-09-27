@@ -21,7 +21,7 @@
 }
 :root {
   /* Palette from the disco-print reference. */
-  --ink: #414141;
+  --ink: #233c39;
   --ink-strong: color-mix(in srgb, var(--ink) 74%, black);
   --pink: #f6a5df;
   --coral: #f76b60;
@@ -233,7 +233,7 @@ textarea:focus-visible {
   letter-spacing: -0.035em;
   white-space: nowrap;
 }
-.brand span {
+.brand .brand-emoji {
   display: inline-block;
   font-size: 32px;
   line-height: 1;
@@ -277,32 +277,58 @@ textarea:focus-visible {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  background:
-    radial-gradient(
-      ellipse at 74% 95%,
-      color-mix(in srgb, var(--mint) 24%, var(--ink)) 0,
-      transparent 49%
-    ),
-    radial-gradient(
-      ellipse at 16% 10%,
-      color-mix(in srgb, var(--pink) 18%, var(--ink)) 0,
-      transparent 50%
-    ),
-    var(--ink);
+  background: linear-gradient(115deg, #e6e6e2, #f5f5f2 48%, #ffffff);
+  color: var(--ink);
   isolation: isolate;
 }
-.stage-orbit {
+/* A white studio wall, curved plinth, and sunlit foreground plane. */
+.stage-sculpture {
   position: absolute;
-  border: 1px solid color-mix(in srgb, var(--pink) 25%, transparent);
-  width: 75%;
-  height: 115%;
-  border-radius: 50%;
-  left: 13%;
-  top: 10%;
-  transform: rotate(-25deg);
+  width: 53%;
+  height: 113%;
+  left: 35%;
+  top: -31%;
+  border-radius: 0 0 44% 44% / 0 0 17% 17%;
+  background: linear-gradient(100deg, #eeeeeb, #fafaf8 48%, #ffffff 78%, #ecece8);
   box-shadow:
-    0 0 0 60px color-mix(in srgb, var(--pink) 2%, transparent),
-    0 0 0 120px color-mix(in srgb, var(--pink) 2%, transparent);
+    -22px 28px 35px #34342e12,
+    8px 18px 22px #34342e0a;
+}
+.hero-stage::before,
+.intro-backdrop::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 68%;
+  left: -20%;
+  bottom: -44%;
+  transform: rotate(-18deg);
+  background: linear-gradient(165deg, #ffffff, #f4f4f0 64%, #e2e2dc);
+  box-shadow: 0 -9px 22px #3c3c3312;
+  z-index: 0;
+}
+.hero-stage::after {
+  content: '';
+  position: absolute;
+  width: 57%;
+  height: 12%;
+  left: 20%;
+  bottom: 6%;
+  border-radius: 50%;
+  background: #39393114;
+  filter: blur(22px);
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+.hero-stage .phone {
+  border-color: #292929;
+  background: #292929;
+  box-shadow:
+    0 0 0 2px #d5d5d0,
+    -4px 2px 0 2px #989993,
+    -7px 4px 0 2px #e4e4df,
+    -16px 24px 22px #29292326,
+    -32px 44px 45px #2929231c;
 }
 .stage-note {
   position: absolute;
@@ -311,7 +337,7 @@ textarea:focus-visible {
   font-size: 12px;
   letter-spacing: 0.09em;
   line-height: 1.8;
-  color: var(--pink);
+  color: var(--ink);
   z-index: 3;
 }
 .stage-caption {
@@ -320,7 +346,8 @@ textarea:focus-visible {
   top: 28px;
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: var(--pink);
+  color: var(--ink);
+  z-index: 3;
 }
 .phone {
   position: absolute;
@@ -354,14 +381,22 @@ textarea:focus-visible {
   background-color: var(--cream);
 }
 .email-jewelry {
-  background-image: url('/assets/portfolio-1.webp');
-  background-size: 360% auto;
-  background-position: 2% top;
+  position: relative;
+  overflow: hidden;
+}
+.email-jewelry::before {
+  content: '';
+  position: absolute;
+  inset: -3px 0 0;
+  background-image: url('/assets/arcian-holiday-gifts.png');
+  background-size: 103% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 .email-skincare {
   background-image: url('/assets/portfolio-2.jpg');
-  background-size: 470% auto;
-  background-position: 3% top;
+  background-size: 506.2% auto;
+  background-position: 3.905% top;
 }
 .email-pets {
   background-image: url('/assets/portfolio-8.webp');
@@ -390,7 +425,7 @@ textarea:focus-visible {
   position: absolute;
   right: 30px;
   bottom: 28px;
-  border: 1px solid var(--pink);
+  border: 1px solid var(--ink);
   border-radius: 50%;
   width: 62px;
   height: 62px;
@@ -468,14 +503,19 @@ textarea:focus-visible {
   padding-bottom: 110px;
 }
 .intro-copy {
+  container-type: inline-size;
   max-width: 475px;
 }
 .intro-copy .eyebrow {
   margin-bottom: 23px;
 }
 .intro h2 {
-  font-size: clamp(34px, 3.6vw, 55px);
+  font-size: clamp(22px, 8.4cqw, 48px);
   margin-bottom: 28px;
+}
+.intro h2 span {
+  display: block;
+  white-space: nowrap;
 }
 .intro .pill {
   margin-top: 30px;
@@ -484,16 +524,16 @@ textarea:focus-visible {
 .intro-visual {
   height: 580px;
   border-radius: 9px;
-  background: var(--mint);
+  background: linear-gradient(115deg, #e6e6e2, #f5f5f2 48%, #ffffff);
   position: relative;
   isolation: isolate;
-  background-image: linear-gradient(
-    150deg,
-    transparent 67%,
-    color-mix(in srgb, var(--mint) 85%, var(--ink)) 67.2%,
-    color-mix(in srgb, var(--mint) 80%, var(--cream)) 68%,
-    var(--mint) 90%
-  );
+}
+.intro-backdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
 }
 .phone.phone-intro {
   --intro-phone-width: 228px;
@@ -512,7 +552,6 @@ textarea:focus-visible {
 .phone-intro .phone-screen {
   border-radius: 25px;
   overflow: hidden;
-  padding-top: 27px;
   background: var(--cream);
 }
 .phone.phone-intro::after {
@@ -522,12 +561,11 @@ textarea:focus-visible {
   left: 50%;
   transform: translateX(-50%);
 }
-.email-stack img {
-  /* Trim the screenshot’s uneven gutters: 18px left and 10px right of 252px. */
-  width: 112.5%;
-  max-width: none;
-  height: auto;
-  margin-left: -8.035714%;
+.email-slideshow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 .visual-caption {
   position: absolute;
@@ -541,13 +579,13 @@ textarea:focus-visible {
   position: absolute;
   left: -95px;
   bottom: 45px;
-  color: var(--coral);
+  color: var(--pink);
   z-index: 2;
 }
-/* Services and the coral-to-cream paper edge. */
+/* Services and the pink-to-cream paper edge. */
 .services {
-  background: var(--coral);
-  color: var(--ink-strong);
+  background: var(--pink);
+  color: var(--ink);
   position: relative;
   padding: 70px 10.8% 100px;
   isolation: isolate;
@@ -560,7 +598,7 @@ textarea:focus-visible {
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
-  color: var(--pink);
+  color: var(--ink);
 }
 .service-wave svg {
   display: block;
@@ -576,7 +614,8 @@ textarea:focus-visible {
 .services-lead {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12%;
+  column-gap: 12%;
+  row-gap: 40px;
   align-items: end;
 }
 .service-visual {
@@ -590,16 +629,11 @@ textarea:focus-visible {
   aspect-ratio: 1/1.1;
   object-fit: cover;
 }
-.service-star {
-  position: absolute;
-  right: -26px;
-  bottom: -83px;
-  width: 180px;
-  height: 180px;
-  color: var(--pink);
-}
+
 .services-copy {
-  padding-top: 230px;
+  align-self: center;
+  padding-bottom: 65px;
+  transform: translateY(20%);
 }
 .services-copy > .eyebrow {
   margin-bottom: 18px;
@@ -611,22 +645,52 @@ textarea:focus-visible {
 .services-copy p {
   font-size: 15px;
 }
-.services-copy .clients-label {
+.services-clients {
+  grid-column: 1 / -1;
+}
+.services-clients .clients-label {
   font-size: 11px;
-  margin-top: 28px;
+  margin-top: 0;
   margin-bottom: 18px;
 }
 .client-names {
+  color: var(--ink);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 32px;
   align-items: center;
+  justify-items: center;
+  text-align: center;
   line-height: 1;
   font-family: var(--heading);
   font-size: 13px;
   letter-spacing: -0.04em;
 }
+.client-names > span {
+  min-width: 0;
+}
+.client-names .skyro-logo {
+  width: 100%;
+  max-width: 150px;
+}
+.client-names .progs-logo {
+  position: relative;
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 585 / 163;
+  overflow: hidden;
+}
+.progs-logo img {
+  position: absolute;
+  width: 120.342%;
+  max-width: none;
+  height: auto;
+  left: -7.692%;
+  top: -28.221%;
+  filter: grayscale(1) brightness(2) contrast(5) invert(1) url(#client-logo-green);
+}
 .client-names .skyro-logo img {
+  filter: brightness(0) url(#client-logo-green);
   display: block;
   width: 100%;
   height: auto;
@@ -637,14 +701,36 @@ textarea:focus-visible {
   letter-spacing: 0.15em;
 }
 .client-names .mineral-logo {
-  font-family: var(--body);
-  font-size: 19px;
-  font-weight: 600;
+  position: relative;
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 782 / 132;
+  overflow: hidden;
+}
+.mineral-logo img {
+  position: absolute;
+  width: 123.018%;
+  max-width: none;
+  height: auto;
+  left: -6.905%;
+  top: -62.121%;
+  filter: grayscale(1) brightness(0.7) contrast(6) url(#client-logo-green);
 }
 .client-names .earth-logo {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  letter-spacing: 0.05em;
+  position: relative;
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 780 / 216;
+  overflow: hidden;
+}
+.earth-logo img {
+  position: absolute;
+  width: 123.333%;
+  max-width: none;
+  height: auto;
+  left: -11.795%;
+  top: -32.407%;
+  filter: grayscale(1) contrast(1.2) url(#client-logo-green);
 }
 .service-list {
   display: grid;
@@ -653,7 +739,7 @@ textarea:focus-visible {
   margin-top: 100px;
 }
 .service-number {
-  color: var(--ink-strong);
+  color: var(--ink);
   font-size: 12px;
   display: block;
   margin-bottom: 16px;
@@ -669,16 +755,15 @@ textarea:focus-visible {
   width: 440px;
   margin: 44px auto 0;
 }
-.zigzag::after {
-  content: '';
+.section-wave {
   position: absolute;
+  display: block;
   left: 0;
-  right: 0;
   bottom: -1px;
-  height: 18px;
-  background:
-    linear-gradient(135deg, transparent 50%, var(--cream) 50%) 0 0/36px 36px,
-    linear-gradient(225deg, transparent 50%, var(--cream) 50%) 0 0/36px 36px;
+  width: 100%;
+  height: clamp(28px, 4.5vw, 64px);
+  fill: var(--cream);
+  pointer-events: none;
 }
 /* Work stays large enough to read, with a full-size project viewer. */
 .work {
@@ -686,12 +771,16 @@ textarea:focus-visible {
   overflow: hidden;
 }
 .work-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
   white-space: nowrap;
-  font-size: 9vw;
+  font-size: clamp(16px, 5.35vw, 100px);
   line-height: 1.25;
   letter-spacing: -0.05em;
   margin: 0 0 38px;
-  padding-left: var(--gutter);
+  padding-inline: var(--gutter);
 }
 .work-heading span {
   color: var(--ink);
@@ -818,34 +907,26 @@ textarea:focus-visible {
 .about-art {
   position: relative;
   align-self: center;
-  background: var(--mint);
-  color: var(--ink);
   border-radius: 9px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 .about-portrait {
+  border-radius: inherit;
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 1;
 }
-.about-location {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 24px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
-.location-emoji {
-  display: inline-block;
-  font-size: 1.65em;
-  line-height: 1;
-  vertical-align: -0.12em;
+
+.about-flower {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: clamp(110px, 12vw, 180px);
+  height: auto;
+  color: var(--pink);
+  pointer-events: none;
 }
 .contact {
   padding-top: 105px;
@@ -870,13 +951,8 @@ textarea:focus-visible {
   max-width: 430px;
   font-size: 17px;
 }
-.contact-star {
-  color: var(--coral);
-  margin: 45px 0 25px;
-  width: 145px;
-  height: 145px;
-}
 .contact-copy .contact-location {
+  margin-top: 20px;
   font-size: 12px;
   line-height: 1.8;
 }
@@ -939,8 +1015,8 @@ textarea:focus-visible {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: clamp(24px, 6vw, 96px);
   align-items: start;
 }
 .footer-top p {
@@ -964,15 +1040,7 @@ textarea:focus-visible {
 .back-to-top span {
   margin-left: 30px;
 }
-.footer-brand {
-  font-family: var(--heading);
-  font-size: 9.27vw;
-  letter-spacing: -0.065em;
-  line-height: 1.15;
-  display: block;
-  white-space: nowrap;
-  margin-top: 70px;
-}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1062,9 +1130,6 @@ textarea:focus-visible {
   .hero h1 {
     font-size: min(10.06vw, 188px);
   }
-  .footer-brand {
-    font-size: min(9.27vw, 175px);
-  }
 }
 @media (max-width: 1000px) {
   .site-header {
@@ -1099,23 +1164,16 @@ textarea:focus-visible {
   }
   .services-lead,
   .service-list {
-    gap: 9%;
-  }
-  .services-copy {
-    padding-top: 180px;
+    column-gap: 9%;
   }
   .client-names {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
   }
   .about,
   .contact-grid {
     gap: 9%;
   }
-  .about-location {
-    flex-direction: column;
-    gap: 8px;
-  }
+
   .project-caption {
     flex-direction: column;
     gap: 4px;
@@ -1163,7 +1221,7 @@ textarea:focus-visible {
   .brand {
     font-size: 17px;
   }
-  .brand span {
+  .brand .brand-emoji {
     font-size: 25px;
   }
   .menu-toggle {
@@ -1251,9 +1309,10 @@ textarea:focus-visible {
     transform: rotate(15deg) scale(0.86);
   }
   .stage-note {
-    left: 15px;
-    bottom: 16px;
-    font-size: 7px;
+    left: 13px;
+    top: 13px;
+    bottom: auto;
+    font-size: 6px;
     letter-spacing: 0.06em;
   }
   .stage-caption {
@@ -1299,9 +1358,6 @@ textarea:focus-visible {
   .intro-copy {
     max-width: none;
   }
-  .intro h2 {
-    font-size: 38px;
-  }
   .intro-copy .eyebrow {
     font-size: 10px;
   }
@@ -1320,7 +1376,6 @@ textarea:focus-visible {
   }
   .phone-intro .phone-screen {
     border-radius: 18px;
-    padding-top: 23px;
   }
   .phone.phone-intro::after {
     top: 10px;
@@ -1361,14 +1416,10 @@ textarea:focus-visible {
   .service-visual img {
     aspect-ratio: 1.05;
   }
-  .service-star {
-    width: 115px;
-    height: 115px;
-    bottom: -45px;
-    right: -48px;
-  }
+
   .services-copy {
-    padding-top: 15px;
+    padding: 15px 0 0;
+    transform: none;
   }
   .services-copy h2 {
     font-size: 33px;
@@ -1377,17 +1428,15 @@ textarea:focus-visible {
     font-size: 10px;
   }
   .client-names {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .client-names .progs-logo {
+    grid-column: 1 / -1;
+    width: calc((100% - 28px) / 2);
   }
   .client-names > span {
     font-size: 11px;
-  }
-  .client-names .mineral-logo {
-    font-size: 16px;
-  }
-  .client-names .earth-logo {
-    font-size: 14px;
   }
   .client-names small {
     font-size: 7px;
@@ -1411,7 +1460,6 @@ textarea:focus-visible {
     padding-bottom: 70px;
   }
   .work-heading {
-    font-size: 20vw;
     margin-bottom: 25px;
   }
   .work-grid {
@@ -1455,14 +1503,14 @@ textarea:focus-visible {
   .about h2 {
     font-size: 44px;
   }
+  .about-flower {
+    top: -16px;
+    left: -16px;
+  }
   .about p:not(.eyebrow) {
     font-size: 15px;
   }
-  .about-location {
-    flex-direction: row;
-    padding: 20px;
-    font-size: 10px;
-  }
+
   .contact > h2 {
     font-size: 9.5vw;
     line-height: 1.03;
@@ -1477,9 +1525,6 @@ textarea:focus-visible {
   }
   .contact-copy > p {
     font-size: 15px;
-  }
-  .contact-star {
-    display: none;
   }
   .contact-copy .contact-location {
     font-size: 11px;
@@ -1500,10 +1545,7 @@ textarea:focus-visible {
     grid-template-columns: 1fr;
     gap: 14px;
   }
-  .footer-brand {
-    font-size: 8.9vw;
-    margin-top: 55px;
-  }
+
   .footer-bottom {
     font-size: 7px;
     gap: 20px;
@@ -1568,9 +1610,6 @@ textarea:focus-visible {
   .about h2 {
     font-size: 36px;
   }
-  .intro h2 {
-    font-size: 34px;
-  }
   .work-outro h3 {
     font-size: 34px;
   }
@@ -1579,5 +1618,28 @@ textarea:focus-visible {
   }
   .site-header {
     gap: 20px;
+  }
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand-tagline {
+  color: var(--pink);
+  font-family: var(--body);
+  font-size: clamp(11px, 1.15vw, 17px);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+@media (max-width: 1100px) {
+  .brand-lockup {
+    gap: 3px 12px;
+  }
+  .brand-tagline {
+    flex-basis: 100%;
   }
 }

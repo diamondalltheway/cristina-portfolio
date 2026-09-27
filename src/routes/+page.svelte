@@ -17,7 +17,15 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
   ><defs
-    ><symbol id="asterisk-solid" viewBox="160 100 740 840"
+    ><filter id="client-logo-green" color-interpolation-filters="sRGB">
+      <feColorMatrix
+        type="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -0.2126 -0.7152 -0.0722 1 0"
+        result="logo-mask"
+      />
+      <feFlood flood-color="var(--ink)" />
+      <feComposite in2="logo-mask" operator="in" />
+    </filter><symbol id="asterisk-solid" viewBox="160 100 740 840"
       ><path
         d="M540 138 603 125Q625 120 620 143L593 348Q588 371 608 360L764 231Q780 220 793 233L833 263Q846 274 831 293L755 380 665 465Q649 480 664 491L871 617Q891 629 875 642L832 672Q820 682 801 676L638 617Q616 607 627 629L718 857Q726 876 708 882L649 906Q628 917 619 897L530 737Q516 712 508 740L454 900Q448 915 430 917 410 920 413 899L423 627Q429 599 408 614L248 720Q231 735 219 721L190 691Q177 677 192 666L382 535Q406 520 384 509L205 419Q185 411 203 393 213 379 236 386L365 411Q389 416 381 394L327 241Q315 216 340 209L368 202Q387 194 398 217L458 327Q480 358 486 338L525 159Q528 141 540 138Z"
         fill="currentColor"
@@ -49,7 +57,7 @@
 <main id="main">
   <section id="home" class="hero" aria-labelledby="hero-heading">
     <div class="hero-stage">
-      <div class="stage-orbit" aria-hidden="true"></div>
+      <div class="stage-sculpture" aria-hidden="true"></div>
       <p class="stage-note">A LITTLE STRATEGY.<br />A LOT OF PERSONALITY.</p>
       <div
         class="phone phone-left"
@@ -61,7 +69,7 @@
       <div
         class="phone phone-main"
         role="img"
-        aria-label="Cristina's jewelry email design displayed on a phone"
+        aria-label="Arcian holiday gifts email designed by Cristina, displayed on a phone"
       >
         <div class="phone-screen email-jewelry"></div>
       </div>
@@ -88,7 +96,9 @@
   <section class="intro section-pad" aria-labelledby="intro-heading">
     <div class="intro-copy">
       <p class="eyebrow">FROM MEDELLÍN, WITH LOVE 🇨🇴</p>
-      <h2 id="intro-heading">YOUR NEXT<br />EMAIL DESERVES<br />TO STAND OUT.</h2>
+      <h2 id="intro-heading">
+        <span>YOUR NEXT EMAIL</span><span>DESERVES</span><span>TO STAND OUT.</span>
+      </h2>
       <p>
         I’m Cristina, a graphic and email designer working with clients all over the globe. I turn
         brand stories into visually engaging emails that feel as good as they look.
@@ -100,13 +110,14 @@
       <a class="pill pill-outline" href="#work">VIEW MY WORK <span>→</span></a>
     </div>
     <div class="intro-visual">
+      <div class="intro-backdrop" aria-hidden="true"><div class="stage-sculpture"></div></div>
       <div class="phone phone-intro">
-        <div class="phone-screen email-stack">
+        <div class="phone-screen email-slideshow">
           <img
-            src="/assets/arcian-stack-moment.png"
-            width="252"
-            height="804"
-            alt="Arcian’s The Stack Moment jewelry email designed by Cristina, featuring colorful stacking rings"
+            src="/assets/email-designs-animated.svg"
+            width="420"
+            height="900"
+            alt="Eight email designs by Cristina, changing every 1.3 seconds"
             loading="lazy"
           />
         </div>
@@ -117,7 +128,7 @@
       >
     </div>
   </section>
-  <section id="services" class="services zigzag" aria-labelledby="services-heading">
+  <section id="services" class="services" aria-labelledby="services-heading">
     <div class="service-wave" aria-hidden="true">
       <svg viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid slice"
         ><defs><path id="wave-path" d="M-250 140 Q100 260 450 130 T1150 130 T1850 130" /></defs
@@ -136,7 +147,7 @@
           height="1112"
           alt="Animated collection of Cristina's Earth Harbor email campaigns"
           loading="lazy"
-        /><svg class="starburst service-star" aria-hidden="true"><use href="#star-solid" /></svg>
+        />
       </div>
       <div class="services-copy">
         <p class="eyebrow">DESIGNED TO CONNECT</p>
@@ -146,7 +157,9 @@
           distinctive design that catches the eye, tells your story, and gives your customers a
           reason to click.
         </p>
-        <p class="eyebrow clients-label">A FEW CLIENTS I’VE WORKED WITH</p>
+      </div>
+      <div class="services-clients">
+        <p class="eyebrow clients-label">CLIENTS/AGENCIES I'VE WORKED WITH</p>
         <div class="client-names">
           <span class="skyro-logo"
             ><img
@@ -155,9 +168,32 @@
               width="330"
               height="68"
             /></span
-          ><span class="mineral-logo">mineral.io</span><span class="earth-logo"
-            >EARTH<br />HARBOR</span
+          ><span class="mineral-logo"
+            ><img
+              src="/assets/mineral-logo.png"
+              alt="Mineral"
+              width="962"
+              height="324"
+              loading="lazy"
+            /></span
+          ><span class="earth-logo"
+            ><img
+              src="/assets/earth-harbor-logo.png"
+              alt="Earth Harbor"
+              width="962"
+              height="348"
+              loading="lazy"
+            /></span
           ><span>SALES FLOW<br /><small>MARKETING</small></span>
+          <span class="progs-logo"
+            ><img
+              src="/assets/progs-email-marketing.png"
+              alt="PROGS Email Marketing"
+              width="704"
+              height="250"
+              loading="lazy"
+            /></span
+          >
         </div>
       </div>
     </div>
@@ -180,9 +216,24 @@
         </p>
       </article>
     </div>
-    <a class="pill pill-dark services-cta" href="#contact"
+    <a class="pill pill-outline services-cta" href="#contact"
       >LET’S TALK ABOUT YOUR PROJECT <span>→</span></a
     >
+    <svg class="section-wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern
+          id="services-wave-pattern"
+          x="0"
+          y="0"
+          width="240"
+          height="64"
+          patternUnits="userSpaceOnUse"
+        >
+          <path d="M0 32 C40 0 80 0 120 32 S200 64 240 32 V64 H0 Z" />
+        </pattern>
+      </defs>
+      <rect width="1440" height="64" fill="url(#services-wave-pattern)" />
+    </svg>
   </section>
   <WorkGallery />
   <section id="about" class="about section-pad" aria-labelledby="about-heading">
@@ -211,10 +262,17 @@
         height="901"
         loading="lazy"
       />
-      <div class="about-location">
-        <span>BASED IN MEDELLÍN <span class="location-emoji">🇨🇴</span></span>
-        <span>CREATING FOR BRANDS EVERYWHERE <span class="location-emoji">🌎</span></span>
-      </div>
+      <svg class="about-flower" viewBox="0 0 200 200" aria-hidden="true">
+        <path
+          d="M86.00 75.75 C69.00 43.00 67.00 6.00 100.00 6.00 C133.00 6.00 131.00 43.00 114.00 75.75 C133.86 44.65 164.91 24.42 181.41 53.00 C197.91 81.58 164.86 98.35 128.00 100.00 C164.86 101.65 197.91 118.42 181.41 147.00 C164.91 175.58 133.86 155.35 114.00 124.25 C131.00 157.00 133.00 194.00 100.00 194.00 C67.00 194.00 69.00 157.00 86.00 124.25 C66.14 155.35 35.09 175.58 18.59 147.00 C2.09 118.42 35.14 101.65 72.00 100.00 C35.14 98.35 2.09 81.58 18.59 53.00 C35.09 24.42 66.14 44.65 86.00 75.75 Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          vector-effect="non-scaling-stroke"
+        />
+      </svg>
     </div>
   </section>
   <div class="ticker ticker-mint" aria-label="Good design, great connections">
@@ -239,7 +297,6 @@
     </nav>
     <a class="back-to-top" href="#home">BACK TO TOP <span>↑</span></a>
   </div>
-  <a class="footer-brand" href="#home">CRISTINA LALINDE</a>
   <div class="footer-bottom">
     <span>© <span id="year">{year}</span> CRISTINA LALINDE</span><span
       >A LITTLE STRATEGY. A LOT OF PERSONALITY.</span
