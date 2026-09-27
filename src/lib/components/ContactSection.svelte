@@ -42,8 +42,8 @@
   <div class="contact-grid">
     <div class="contact-copy">
       <p>
-        Ready for emails that feel unmistakably you? Tell me a little about your brand and what you
-        have in mind. Let’s make something worth opening.
+        Your brand has a story. Let’s give it an inbox moment. Share your ideas and your wish list—I’ll
+        help turn them into emails with personality and purpose.
       </p>
       <p class="contact-location">From Medellín, Colombia<br />to inboxes all over the world.</p>
     </div>
