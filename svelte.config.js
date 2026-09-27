@@ -1,8 +1,8 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 
+/** @type {import('@sveltejs/kit').Config} */
 export default {
   kit: {
-    // Explicit output keeps the separate api/contact.js Vercel function alongside the static build.
-    adapter: adapter({ pages: 'build', assets: 'build', strict: true }),
+    adapter: adapter(),
   },
 };

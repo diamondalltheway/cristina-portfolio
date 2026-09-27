@@ -3,27 +3,33 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Cristina Lalinde's static SvelteKit portfolio for graphic and email design.",
+  "description": "Cristina Lalinde's SvelteKit and TypeScript portfolio with prerendered pages and Slack contact notifications.",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node server.js",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-    "test": "node --test server.test.js",
-    "test:browser": "node scripts/check-browser.mjs"
+    "prepare": "svelte-kit sync",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
   },
   "engines": {
     "node": "24.x"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.10",
+    "@playwright/test": "^1.63.0",
+    "@sveltejs/adapter-vercel": "^6.3.4",
     "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
-    "playwright": "^1.63.0",
+    "@types/node": "^24.19.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.57.1",
     "svelte-check": "^4.7.6",
     "typescript": "^6.0.3",
-    "vite": "^8.3.1"
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
   }
 }

@@ -1,0 +1,10 @@
+node_modules/
+.svelte-kit/
+.vercel/
+build/
+static/
+test-results/
+playwright-report/
+package-lock.json
+.env
+.env.*
