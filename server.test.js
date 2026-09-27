@@ -107,7 +107,8 @@ test('Node server serves the portfolio and persists validated contact submission
   assert.equal(deliveries[0].options.method, 'POST');
   assert.equal(deliveries[0].options.redirect, 'error');
   assert.match(JSON.stringify(deliveries[0].payload), /test@example.com/);
-  assert.match(JSON.stringify(deliveries[0].payload), new RegExp(saved.id));
+  assert.ok(!JSON.stringify(deliveries[0].payload).includes(saved.id));
+  assert.ok(!JSON.stringify(deliveries[0].payload).includes(saved.createdAt));
 });
 
 const valid = { email: 'test@example.com', subject: 'New project', message: 'Let’s talk.' };
@@ -186,7 +187,7 @@ test('full-length messages preserve plain text and Unicode across Slack blocks',
     const response = await post({ ...valid, email: ' test@example.com ', message });
     assert.equal(response.status, 201);
     const payload = payloads.at(-1);
-    const blocks = payload.blocks.slice(3, -1);
+    const blocks = payload.blocks.filter(block => block.block_id?.startsWith('message_'));
     assert.equal(blocks.map(block => block.text.text).join(''), message);
     assert.ok(blocks.every(block => block.text.type === 'plain_text' && Array.from(block.text.text).length <= 3000));
     assert.equal(payload.unfurl_links, false);
@@ -197,4 +198,25 @@ test('full-length messages preserve plain text and Unicode across Slack blocks',
   assert.equal((await post({ ...valid, message: 'x'.repeat(10001) })).status, 400);
   assert.equal((await post({ ...valid, message: 'x'.repeat(17000) })).status, 413);
   assert.equal(payloads.length, count);
+});
+
+test('Slack notifications style labels and preserve visitor text without extra footer sections', async t => {
+  let payload;
+  const { post } = await contactServer(t, { slackFetch: async (_url, options) => {
+    payload = JSON.parse(options.body);
+    return new Response('ok');
+  } });
+  const email = 'client+project@example.com';
+  const subject = '<!channel> *New project* & design';
+  assert.equal((await post({ email, subject, message: 'First paragraph.\n\nSecond paragraph.' })).status, 201);
+  assert.equal(payload.blocks[0].type, 'header');
+  const details = payload.blocks.find(block => block.type === 'rich_text').elements;
+  assert.equal(details[0].elements[0].style.bold, true);
+  assert.equal(details[0].elements[1].text, email);
+  assert.equal(details[1].elements[1].text, subject);
+  assert.ok(!JSON.stringify(payload).includes('mailto:'));
+  assert.ok(!JSON.stringify(payload).includes('Reply by email'));
+  assert.ok(!JSON.stringify(payload).includes('Received'));
+  assert.ok(!JSON.stringify(payload).includes('Reference:'));
+  assert.ok(!payload.blocks.some(block => block.text?.type === 'mrkdwn' && block.text.text.includes(subject)));
 });

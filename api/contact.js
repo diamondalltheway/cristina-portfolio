@@ -1,4 +1,4 @@
 import { createContactHandler } from '../lib/contact.js';
 
-// The only dynamic route. Pages and assets are served directly from public/.
+// The only dynamic route. SvelteKit prerenders pages and assets into build/.
 export default createContactHandler();

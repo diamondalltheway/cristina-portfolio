@@ -18,6 +18,14 @@ const base = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
   await mkdir('test-results/redesign', { recursive: true });
+  // Prerendered content must work without hydration or a page-rendering server.
+  const staticContext = await browser.newContext({ javaScriptEnabled: false });
+  const staticPage = await staticContext.newPage();
+  await staticPage.goto(base);
+  assert.equal(await staticPage.locator('h1').textContent(), 'HEY, I’M CRISTINA');
+  assert.equal(await staticPage.locator('.project-card').count(), 8);
+  assert.equal(await staticPage.locator('#contact-form input[required]').count(), 2);
+  await staticContext.close();
   const page = await browser.newPage();
   page.setDefaultTimeout(10000);
   const errors = [], external = [], failures = [];

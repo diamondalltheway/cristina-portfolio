@@ -5,7 +5,7 @@ import path from 'node:path';
 import { createContactHandler } from './lib/contact.js';
 import { loadEnvFile } from 'node:process';
 
-const root = path.resolve(fileURLToPath(new URL('./public/', import.meta.url)));
+const root = path.resolve(fileURLToPath(new URL('./build/', import.meta.url)));
 const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.gif': 'image/gif', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2' };
 
 export function createApp({

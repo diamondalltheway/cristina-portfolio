@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Cristina Lalinde's graphic and email design portfolio, inspired by Janna Lynn Design.",
+  "description": "Cristina Lalinde's static SvelteKit portfolio for graphic and email design.",
   "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
     "start": "node server.js",
-    "dev": "node --watch server.js",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "test": "node --test server.test.js",
     "test:browser": "node scripts/check-browser.mjs"
   },
@@ -14,6 +17,13 @@
     "node": "24.x"
   },
   "devDependencies": {
-    "playwright": "^1.63.0"
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "playwright": "^1.63.0",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.1"
   }
 }

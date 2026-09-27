@@ -2,6 +2,9 @@ node_modules/
 data/
 .DS_Store
 test-results/
+.svelte-kit/
+build/
+.vercel/
 .env
 .env.*
 !.env.example
