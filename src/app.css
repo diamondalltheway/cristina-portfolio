@@ -499,32 +499,35 @@ textarea:focus-visible {
   --intro-phone-width: 228px;
   width: var(--intro-phone-width);
   left: 50%;
-  top: 26px;
-  transform: translateX(-50%) rotate(10deg);
+  top: calc(50% - 22px);
+  transform: translate(-50%, -50%) rotate(10deg);
   border: 6px solid var(--ink);
   padding: 3px;
   border-radius: 34px;
   box-shadow:
-    3px 4px 0 var(--ink),
+    0 0 0 1px color-mix(in srgb, var(--cream) 12%, var(--ink)),
     12px 18px 24px color-mix(in srgb, var(--ink) 22%, transparent),
     25px 35px 50px color-mix(in srgb, var(--ink) 12%, transparent);
 }
 .phone-intro .phone-screen {
   border-radius: 25px;
   overflow: hidden;
-  padding-top: 29px;
+  padding-top: 27px;
   background: var(--cream);
 }
 .phone.phone-intro::after {
   width: 28%;
   height: 13px;
   top: 12px;
-  left: 36%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .email-stack img {
-  width: 100%;
+  /* Trim the screenshot’s uneven gutters: 18px left and 10px right of 252px. */
+  width: 112.5%;
   max-width: none;
   height: auto;
+  margin-left: -8.035714%;
 }
 .visual-caption {
   position: absolute;
@@ -1084,7 +1087,6 @@ textarea:focus-visible {
   }
   .phone.phone-intro {
     --intro-phone-width: 188px;
-    top: 20px;
   }
   .intro-star {
     left: -60px;
@@ -1312,7 +1314,6 @@ textarea:focus-visible {
   }
   .phone.phone-intro {
     --intro-phone-width: 158px;
-    top: 16px;
     border-width: 5px;
     padding: 2px;
     border-radius: 25px;
@@ -1327,7 +1328,7 @@ textarea:focus-visible {
   }
   .intro-star {
     left: -40px;
-    bottom: -30px;
+    bottom: 45px;
     width: 130px;
     height: 130px;
   }
