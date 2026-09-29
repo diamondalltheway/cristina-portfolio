@@ -38,6 +38,12 @@ The official `@sveltejs/adapter-vercel` builds the Vercel deployment. The portfo
 
 Vercel uses the SvelteKit framework preset. Set `SLACK_WEBHOOK_URL` in the project's Production environment (and Preview if desired), then deploy. A missing webhook leaves the portfolio accessible and causes contact submissions to return a temporary-unavailability message.
 
+## Analytics
+
+Vercel Web Analytics is initialized in `src/routes/+layout.ts`. SvelteKit's `dev` flag selects development mode locally and production mode for built deployments, including previews. No additional environment variables are required. `SLACK_WEBHOOK_URL` remains server-only and is not passed to Analytics.
+
+Enable Web Analytics in the Vercel project's Analytics tab, then deploy to start collecting page views. See the [Vercel setup guide](https://vercel.com/docs/analytics/quickstart).
+
 ## Contact notifications
 
 The form requires an email address, subject, and message. Slack receives a heading, bold sender and subject labels, and the full message split into readable sections when necessary. Visitor text remains literal, without interpreting mentions or formatting. Notifications omit received timestamps, reference IDs, and reply sections.
