@@ -449,13 +449,6 @@ textarea:focus-visible {
   border-color: var(--mint);
   color: var(--ink);
 }
-.hero h1 {
-  font-size: 10.06vw;
-  white-space: nowrap;
-  margin: 27px 0 0;
-  letter-spacing: -0.06em;
-  line-height: 1.06;
-}
 /* Seamless moving section labels. */
 .ticker {
   overflow: hidden;
@@ -508,11 +501,11 @@ textarea:focus-visible {
 .intro-copy .eyebrow {
   margin-bottom: 23px;
 }
-.intro h2 {
+.intro h1 {
   font-size: clamp(22px, 8.4cqw, 48px);
   margin-bottom: 28px;
 }
-.intro h2 span {
+.intro h1 span {
   display: block;
   white-space: nowrap;
 }
@@ -1115,9 +1108,6 @@ textarea:focus-visible {
   :root {
     --gutter: max(3vw, calc((100vw - 1800px) / 2));
   }
-  .hero h1 {
-    font-size: min(10.06vw, 188px);
-  }
 }
 @media (max-width: 1000px) {
   .site-header {
@@ -1317,12 +1307,6 @@ textarea:focus-visible {
     width: 20px;
     height: 20px;
   }
-  .hero h1 {
-    font-size: 9.58vw;
-    margin-top: 18px;
-    letter-spacing: -0.06em;
-    line-height: 1.08;
-  }
   .ticker {
     font-size: 15px;
     padding: 12px 0;
@@ -1347,7 +1331,7 @@ textarea:focus-visible {
     display: contents;
     max-width: none;
   }
-  .intro h2 {
+  .intro h1 {
     grid-row: 1;
     margin-bottom: 0;
   }

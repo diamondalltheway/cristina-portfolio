@@ -59,7 +59,7 @@
 >
 <SiteHeader />
 <main id="main">
-  <section id="home" class="hero" aria-labelledby="hero-heading">
+  <section id="home" class="hero" aria-label="Email design showcase">
     <div class="hero-stage">
       <div class="stage-sculpture" aria-hidden="true"></div>
       <p class="stage-note">A LITTLE STRATEGY.<br />A LOT OF PERSONALITY.</p>
@@ -87,7 +87,6 @@
         ><svg><use href="#arrow" /></svg></a
       ><span class="stage-caption">EMAIL DESIGN, BY CRISTINA</span>
     </div>
-    <h1 id="hero-heading">HEY, I’M CRISTINA</h1>
   </section>
   <div class="ticker ticker-mint" aria-label="Emails with personality">
     <div class="ticker-track" aria-hidden="true">
@@ -102,9 +101,9 @@
   </div>
   <section class="intro section-pad" aria-labelledby="intro-heading">
     <div class="intro-copy">
-      <h2 id="intro-heading">
+      <h1 id="intro-heading">
         <span>YOUR NEXT EMAIL</span><span>DESERVES</span><span>TO STAND OUT.</span>
-      </h2>
+      </h1>
       <div class="intro-description">
         <p>
           I’m Cristina, a graphic and email designer working with clients all over the globe. I turn

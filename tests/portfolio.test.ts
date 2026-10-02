@@ -4,7 +4,7 @@ test('portfolio is prerendered and readable without JavaScript', async ({ browse
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4173');
-  await expect(page.locator('h1')).toHaveText('HEY, I’M CRISTINA');
+  await expect(page.locator('h1')).toHaveText('YOUR NEXT EMAILDESERVESTO STAND OUT.');
   await expect(page.locator('.project-card')).toHaveCount(8);
   await expect(page.locator('#contact-form')).toBeVisible();
   await context.close();
@@ -39,7 +39,7 @@ test('responsive Svelte components preserve layout, navigation, and keyboard beh
       width,
     );
     await expect(page.locator('.hero')).toHaveCSS('background-color', 'rgb(35, 60, 57)');
-    await expect(page.locator('h1')).toHaveCSS('color', 'rgb(246, 165, 223)');
+    await expect(page.locator('.hero h1')).toHaveCount(0);
     await expect(page.locator('.project-card')).toHaveCount(8);
     if (width <= 700) {
       const menu = page.locator('.menu-toggle');
