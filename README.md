@@ -36,6 +36,8 @@ npm run preview
 
 The official `@sveltejs/adapter-vercel` builds the Vercel deployment. The portfolio page is prerendered as static HTML with browser hydration for interactions. `/api/contact` opts out of prerendering and runs as a SvelteKit server endpoint on Node.js 24. The adapter generates routing and function output automatically.
 
+Every `npm run build` runs the contact tests before compiling. Vercel explicitly uses this command, so a failing contact test stops the deployment. The build checks required fields, submission through the real API handler, success after delivery, preserved input and retry after delivery errors, browser connection errors, server validation, timeouts, and notification formatting. The form tests render the Svelte component in jsdom and simulate Slack's response; they require no installed browser and send no real notifications. They do not verify live Slack credentials or availability.
+
 Vercel uses the SvelteKit framework preset. Set `SLACK_WEBHOOK_URL` in the project's Production environment (and Preview if desired), then deploy. A missing webhook leaves the portfolio accessible and causes contact submissions to return a temporary-unavailability message.
 
 ## Analytics
@@ -56,8 +58,9 @@ The handler validates origin, content type, body size, and field lengths, and gi
 npm run check
 npm run lint
 npm test
+npm run test:contact
 npm run build
 npm run test:e2e
 ```
 
-`check` runs strict TypeScript and Svelte diagnostics. Vitest covers request validation, Slack delivery, timeouts, notification formatting, and the route's private environment configuration. Playwright runs against SvelteKit's production preview and checks prerendered content without JavaScript, five viewport sizes, navigation, gallery keyboard behavior, required form fields, failure/retry behavior, and the actual API route. The browser tests use local Google Chrome and mock successful contact delivery to avoid sending test notifications.
+`check` runs strict TypeScript and Svelte diagnostics. Vitest covers the rendered contact form, request validation, Slack delivery, timeouts, notification formatting, and the route's private environment configuration. `test:contact` runs the same contact checks required by the build. Playwright runs against SvelteKit's production preview and checks prerendered content without JavaScript, five viewport sizes, navigation, gallery keyboard behavior, required form fields, failure/retry behavior, and the actual API route. The browser tests use local Google Chrome and mock successful contact delivery to avoid sending test notifications.

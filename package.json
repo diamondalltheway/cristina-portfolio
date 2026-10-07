@@ -6,11 +6,12 @@
   "description": "Cristina Lalinde's SvelteKit and TypeScript portfolio with prerendered pages and Slack contact notifications.",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "npm run test:contact && vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
+    "test:contact": "vitest run src/lib/server/contact.test.ts src/lib/components/ContactSection.test.ts",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "lint": "prettier --check ."
@@ -23,7 +24,9 @@
     "@sveltejs/adapter-vercel": "^6.3.4",
     "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@testing-library/svelte": "^5.4.2",
     "@types/node": "^24.19.0",
+    "jsdom": "^30.1.2",
     "prettier": "^3.9.9",
     "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.57.1",
