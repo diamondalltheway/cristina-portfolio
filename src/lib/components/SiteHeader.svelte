@@ -46,10 +46,19 @@
 
 <header class="site-header">
   <div class="brand-lockup">
-    <a class="brand" href="#home" aria-label="Cristina Lalinde, home"
-      >CRISTINA LALINDE <span class="brand-emoji">🐅</span></a
-    >
-    <span class="brand-tagline">EXPERT EMAIL DESIGNER</span>
+    <a class="brand" href="#home" aria-label="Cristina Lalinde, home">
+      <span aria-hidden="true"
+        >CRISTINA LAL<span class="brand-star-letter"
+          >I<svg class="brand-star" viewBox="0 0 100 100" focusable="false"
+            ><path
+              d="M50 1C55 34 66 45 99 50C66 55 55 66 50 99C45 66 34 55 1 50C34 45 45 34 50 1Z"
+            /></svg
+          ></span
+        >NDE</span
+      >
+      <span class="brand-emoji" aria-hidden="true">🐆</span>
+    </a>
+    <span class="brand-tagline">Creative designer that makes pretty emails</span>
   </div>
   <button
     bind:this={menuButton}

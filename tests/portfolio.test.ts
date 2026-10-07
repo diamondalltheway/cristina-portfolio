@@ -4,8 +4,8 @@ test('portfolio is prerendered and readable without JavaScript', async ({ browse
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4173');
-  await expect(page.locator('h1')).toHaveText('YOUR NEXT EMAILDESERVESTO STAND OUT.');
-  await expect(page.locator('.project-card')).toHaveCount(8);
+  await expect(page.locator('h1')).toHaveText('Your Next EmailDeserves To Stand Out.');
+  await expect(page.locator('.project-card')).toHaveCount(12);
   await expect(page.locator('#contact-form')).toBeVisible();
   await context.close();
 });
@@ -24,12 +24,15 @@ test('responsive Svelte components preserve layout, navigation, and keyboard beh
   ]) {
     await page.setViewportSize({ width, height });
     await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    for (const image of await page.locator('main img').all()) {
+      if (await image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0))
+        continue;
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toHaveJSProperty('complete', true);
+      expect(await image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    }
     await page.evaluate(async () => {
-      await document.fonts.ready;
-      for (let y = 0; y < document.body.scrollHeight; y += 700) {
-        scrollTo({ top: y, behavior: 'instant' });
-        await new Promise((resolve) => setTimeout(resolve, 30));
-      }
       await Promise.all(
         [...document.querySelectorAll<HTMLImageElement>('main img')].map((img) => img.decode()),
       );
@@ -40,7 +43,7 @@ test('responsive Svelte components preserve layout, navigation, and keyboard beh
     );
     await expect(page.locator('.hero')).toHaveCSS('background-color', 'rgb(35, 60, 57)');
     await expect(page.locator('.hero h1')).toHaveCount(0);
-    await expect(page.locator('.project-card')).toHaveCount(8);
+    await expect(page.locator('.project-card')).toHaveCount(12);
     if (width <= 700) {
       const menu = page.locator('.menu-toggle');
       await menu.click();
@@ -56,11 +59,16 @@ test('responsive Svelte components preserve layout, navigation, and keyboard beh
     const first = page.locator('.project-card').first();
     await first.click();
     await expect(page.locator('#project-dialog')).toBeVisible();
-    await expect(page.locator('#project-counter')).toHaveText('1 / 8');
+    await expect(page.locator('#project-counter')).toHaveText('1 / 12');
     await page.keyboard.press('ArrowRight');
-    await expect(page.locator('#project-counter')).toHaveText('2 / 8');
+    await expect(page.locator('#project-counter')).toHaveText('2 / 12');
     await page.getByRole('button', { name: 'Previous project', exact: true }).click();
-    await expect(page.locator('#project-counter')).toHaveText('1 / 8');
+    await expect(page.locator('#project-counter')).toHaveText('1 / 12');
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('#project-counter')).toHaveText('12 / 12');
+    await expect(page.locator('#project-title')).toHaveText('Sno-Go · Agency: Skyro Digital');
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('#project-counter')).toHaveText('1 / 12');
     await page.keyboard.press('Escape');
     await expect(page.locator('#project-dialog')).not.toBeVisible();
     await expect(first).toBeFocused();

@@ -1,5 +1,6 @@
 <script lang="ts">
   import PhoneHardware from '$lib/components/PhoneHardware.svelte';
+  import HeroShowcase from '$lib/components/HeroShowcase.svelte';
   import SiteHeader from '$lib/components/SiteHeader.svelte';
   import WorkGallery from '$lib/components/WorkGallery.svelte';
   import ContactSection from '$lib/components/ContactSection.svelte';
@@ -26,15 +27,7 @@
       />
       <feFlood flood-color="var(--ink)" />
       <feComposite in2="logo-mask" operator="in" />
-    </filter><symbol id="asterisk-intro-outline" viewBox="160 100 740 840"
-      ><path
-        d="M540 138 603 125Q625 120 620 143L593 348Q588 371 608 360L764 231Q780 220 793 233L833 263Q846 274 831 293L755 380 665 465Q649 480 664 491L871 617Q891 629 875 642L832 672Q820 682 801 676L638 617Q616 607 627 629L718 857Q726 876 708 882L649 906Q628 917 619 897L530 737Q516 712 508 740L454 900Q448 915 430 917 410 920 413 899L423 627Q429 599 408 614L248 720Q231 735 219 721L190 691Q177 677 192 666L382 535Q406 520 384 509L205 419Q185 411 203 393 213 379 236 386L365 411Q389 416 381 394L327 241Q315 216 340 209L368 202Q387 194 398 217L458 327Q480 358 486 338L525 159Q528 141 540 138Z"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="12"
-        stroke-linejoin="round"
-      /></symbol
-    ><symbol id="asterisk-outline" viewBox="130 120 410 440"
+    </filter><symbol id="asterisk-outline" viewBox="130 120 410 440"
       ><path
         d="M314 140 357 141Q368 140 367 151L363 256Q362 270 371 260L438 169Q445 158 453 168L482 201Q490 208 481 218L423 291Q412 305 428 301L493 291Q504 288 506 301L512 326Q514 335 502 337L440 350Q426 352 440 361L514 406Q525 413 517 424L488 459Q482 468 472 461L412 413Q400 403 403 420L418 497Q421 508 409 512L340 535Q330 538 331 525L327 448Q328 433 320 445L276 525Q270 538 259 531L222 510Q212 505 218 494L260 427Q269 413 254 420L182 450Q169 457 168 443L160 383Q158 373 169 370L248 340Q263 335 250 326L155 261Q144 254 156 244L200 207Q208 199 219 208L291 269Q303 281 302 265L304 151Q304 139 314 140Z"
         fill="none"
@@ -61,48 +54,34 @@
 <main id="main">
   <section id="home" class="hero" aria-label="Email design showcase">
     <div class="hero-stage">
-      <div class="stage-sculpture" aria-hidden="true"></div>
-      <p class="stage-note">A LITTLE STRATEGY.<br />A LOT OF PERSONALITY.</p>
-      <div class="phone phone-left" role="img" aria-label="Cristina's Crude skincare email design">
-        <PhoneHardware />
-        <div class="phone-screen email-skincare"></div>
-      </div>
-      <div
-        class="phone phone-main"
-        role="img"
-        aria-label="Arcian holiday gifts email designed by Cristina, displayed on a phone"
-      >
-        <PhoneHardware />
-        <div class="phone-screen email-jewelry"></div>
-      </div>
-      <div
-        class="phone phone-right"
-        role="img"
-        aria-label="Cristina's Little Beast Love Is in the Air email design"
-      >
-        <PhoneHardware />
-        <div class="phone-screen email-pets"></div>
-      </div>
+      <HeroShowcase />
       <a class="stage-link" href="#work" aria-label="Explore my email designs"
         ><svg><use href="#arrow" /></svg></a
       ><span class="stage-caption">EMAIL DESIGN, BY CRISTINA</span>
     </div>
   </section>
-  <div class="ticker ticker-mint" aria-label="Emails with personality">
+  <div class="ticker ticker-mint" aria-label="Stunning email designs">
     <div class="ticker-track" aria-hidden="true">
-      <span
-        >EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY
-        <b>✉️</b></span
-      ><span
-        >EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY <b>✉️</b> EMAILS WITH PERSONALITY
-        <b>✉️</b></span
-      >
+      {#each [0, 1] as group}
+        <span class="ticker-group">
+          {#each [0, 1, 2, 3, 4, 5, 6, 7] as item}
+            <span class="ticker-item">
+              STUNNING EMAIL DESIGNS
+              <svg class="ticker-star" viewBox="0 0 100 100" focusable="false">
+                <path
+                  d="M50 1C55 34 66 45 99 50C66 55 55 66 50 99C45 66 34 55 1 50C34 45 45 34 50 1Z"
+                />
+              </svg>
+            </span>
+          {/each}
+        </span>
+      {/each}
     </div>
   </div>
   <section class="intro section-pad" aria-labelledby="intro-heading">
     <div class="intro-copy">
       <h1 id="intro-heading">
-        <span>YOUR NEXT EMAIL</span><span>DESERVES</span><span>TO STAND OUT.</span>
+        <span>Your Next Email</span><span>Deserves To Stand Out.</span>
       </h1>
       <div class="intro-description">
         <p>
@@ -131,23 +110,9 @@
           />
         </div>
       </div>
-      <svg class="starburst intro-star" aria-hidden="true"
-        ><use href="#asterisk-intro-outline" /></svg
-      >
     </div>
   </section>
   <section id="services" class="services" aria-labelledby="services-heading">
-    <div class="service-wave" aria-hidden="true">
-      <span class="service-wave-mobile">✦ MY SERVICES ✦</span>
-      <svg viewBox="0 0 1440 240" preserveAspectRatio="xMidYMid slice"
-        ><defs><path id="wave-path" d="M-250 140 Q100 260 450 130 T1150 130 T1850 130" /></defs
-        ><text
-          ><textPath href="#wave-path"
-            >MY SERVICES ✦ MY SERVICES ✦ MY SERVICES ✦ MY SERVICES ✦</textPath
-          ></text
-        ></svg
-      >
-    </div>
     <div class="services-lead">
       <div class="service-visual">
         <img
@@ -160,7 +125,7 @@
       </div>
       <div class="services-copy">
         <p class="eyebrow">DESIGNED TO CONNECT</p>
-        <h2 id="services-heading">GOODBYE, BORING<br />EMAIL TEMPLATES.</h2>
+        <h2 id="services-heading">Goodbye,<br />Boring Email Templates.</h2>
         <p>
           Your brand has a personality. Your emails should, too. Let’s bring it to life with
           distinctive design that catches the eye, tells your story, and gives your customers a
@@ -208,7 +173,7 @@
     <div class="service-list">
       <article>
         <span class="service-number">01.</span>
-        <h3>EMAIL CAMPAIGNS</h3>
+        <h3>Email Campaigns</h3>
         <p>
           Fresh launches, seasonal moments, and everyday brand stories. Thoughtfully designed
           campaigns that bring your message to life, with a consistent look and a clear call to
@@ -217,7 +182,7 @@
       </article>
       <article>
         <span class="service-number">02.</span>
-        <h3>EMAIL FLOWS</h3>
+        <h3>Email Flows</h3>
         <p>
           A great first hello. A timely reminder. A reason to come back. Cohesive email designs that
           help your brand connect with customers throughout their journey.
@@ -246,8 +211,7 @@
   <WorkGallery />
   <section id="about" class="about section-pad" aria-labelledby="about-heading">
     <div class="about-copy">
-      <p class="eyebrow">THE DESIGNER BEHIND THE EMAILS</p>
-      <h2 id="about-heading">LET’S GET<br />ACQUAINTED.</h2>
+      <h2 id="about-heading">The Designer</h2>
       <p>
         Hey there! I’m Cristina, from Medellín, Colombia — working with clients all over the globe.
       </p>
@@ -285,9 +249,20 @@
   </section>
   <div class="ticker ticker-mint" aria-label="Good design, great connections">
     <div class="ticker-track" aria-hidden="true">
-      <span>GOOD DESIGN. GREAT CONNECTIONS. <b>✦</b> GOOD DESIGN. GREAT CONNECTIONS. <b>✦</b></span
-      ><span>GOOD DESIGN. GREAT CONNECTIONS. <b>✦</b> GOOD DESIGN. GREAT CONNECTIONS. <b>✦</b></span
-      >
+      {#each [0, 1] as group}
+        <span class="ticker-group">
+          {#each [0, 1, 2, 3, 4, 5, 6, 7] as item}
+            <span class="ticker-item">
+              GOOD DESIGN. GREAT CONNECTIONS.
+              <svg class="ticker-star" viewBox="0 0 100 100" focusable="false">
+                <path
+                  d="M50 1C55 34 66 45 99 50C66 55 55 66 50 99C45 66 34 55 1 50C34 45 45 34 50 1Z"
+                />
+              </svg>
+            </span>
+          {/each}
+        </span>
+      {/each}
     </div>
   </div>
   <ContactSection />

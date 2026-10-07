@@ -60,8 +60,23 @@
 </script>
 
 <section id="work" class="work" aria-labelledby="work-heading">
-  <h2 id="work-heading" class="work-heading">
-    <span aria-hidden="true">✦</span> BEST EMAIL DESIGNS <span aria-hidden="true">✦</span>
+  <h2 id="work-heading" class="work-heading" aria-label="Best Email Designs">
+    <span class="work-heading-track" aria-hidden="true">
+      {#each [0, 1] as group}
+        <span class="work-heading-group">
+          {#each [0, 1, 2, 3] as item}
+            <span class="work-heading-item">
+              <svg class="work-heading-star" viewBox="0 0 100 100" focusable="false">
+                <path
+                  d="M50 1C55 34 66 45 99 50C66 55 55 66 50 99C45 66 34 55 1 50C34 45 45 34 50 1Z"
+                />
+              </svg>
+              <span>Best Email Designs</span>
+            </span>
+          {/each}
+        </span>
+      {/each}
+    </span>
   </h2>
   <div class="work-grid section-inset">
     {#each projects as item, index (item.src)}
@@ -78,20 +93,34 @@
             alt={item.alt}
             loading="lazy"
           />
-          <span class="project-open" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 19 19 5M5 5h14v14" />
-            </svg>
-          </span>
         </span>
-        <span class="project-caption"><strong>{item.title}</strong><span>EMAIL DESIGN ↗</span></span
-        >
+        <span class="project-caption">
+          <strong
+            >{item.title}{#if item.agency}<span class="project-agency"
+                >{' · Agency: '}{item.agency}</span
+              >{/if}</strong
+          >
+          <svg
+            class="project-arrow"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            focusable="false"
+          >
+            <path d="M5 19 19 5M5 5h14v14" />
+          </svg>
+        </span>
       </button>
     {/each}
   </div>
   <div class="work-outro section-inset">
-    <h3>YOUR BRAND COULD<br />BE NEXT.</h3>
-    <a class="pill pill-dark" href="#contact">LET’S MAKE SOMETHING GREAT <span>→</span></a>
+    <h3>Your Brand Could Be Next.</h3>
+    <a class="pill pill-dark" href="#contact">
+      <span class="pill-label">LET'S MAKE SOME EMAIL MAGIC <span class="pill-emoji">✨</span></span>
+      <span>→</span>
+    </a>
   </div>
 </section>
 
@@ -110,9 +139,11 @@
       onclick={() => dialog.close()}>✕</button
     >
   </div>
-  <h2 id="project-title">{project.title}</h2>
+  <h2 id="project-title">
+    {project.title}{#if project.agency}{' · Agency: '}{project.agency}{/if}
+  </h2>
   <div bind:this={imageWrap} class="dialog-image-wrap">
-    {#if hasOpened}<img id="project-detail-image" src={project.src} alt={project.alt} />{/if}
+    {#if hasOpened}<img id="project-detail-image" src={project.detailSrc} alt={project.alt} />{/if}
   </div>
   <div class="dialog-bottom">
     <button

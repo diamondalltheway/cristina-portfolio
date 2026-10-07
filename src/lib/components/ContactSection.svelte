@@ -37,13 +37,13 @@
 
 <section id="contact" class="contact section-pad" aria-labelledby="contact-heading">
   <h2 id="contact-heading">
-    LET’S ELEVATE YOUR EMAIL <br />MARKETING WITH STANDOUT <br />DESIGNS <span>🚀</span>
+    Let’s Elevate Your Email Marketing <br />With Standout Designs <span>💌</span>
   </h2>
   <div class="contact-grid">
     <div class="contact-copy">
       <p>
-        Your brand has a story. Let’s give it an inbox moment. Share your ideas and your wish list—I’ll
-        help turn them into emails with personality and purpose.
+        Your brand has a story. Let’s give it an inbox moment. Share your ideas and your wish
+        list—I’ll help turn them into emails with personality and purpose.
       </p>
     </div>
     <div class="contact-form-wrap">
