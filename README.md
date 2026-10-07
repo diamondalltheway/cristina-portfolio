@@ -60,7 +60,8 @@ npm run lint
 npm test
 npm run test:contact
 npm run build
+npx playwright install webkit
 npm run test:e2e
 ```
 
-`check` runs strict TypeScript and Svelte diagnostics. Vitest covers the rendered contact form, request validation, Slack delivery, timeouts, notification formatting, and the route's private environment configuration. `test:contact` runs the same contact checks required by the build. Playwright runs against SvelteKit's production preview and checks prerendered content without JavaScript, five viewport sizes, navigation, gallery keyboard behavior, required form fields, failure/retry behavior, and the actual API route. The browser tests use local Google Chrome and mock successful contact delivery to avoid sending test notifications.
+`check` runs strict TypeScript and Svelte diagnostics. Vitest covers the rendered contact form, request validation, Slack delivery, timeouts, notification formatting, and the route's private environment configuration. `test:contact` runs the same contact checks required by the build. Playwright runs against SvelteKit's production preview and checks prerendered content without JavaScript, five viewport sizes, navigation, gallery keyboard behavior, required form fields, failure/retry behavior, and the actual API route. The browser tests use local Google Chrome and mock successful contact delivery to avoid sending test notifications. A separate iPhone WebKit visual regression test verifies that the three hero email screens render correctly without JavaScript; install WebKit before running the browser suite. See `notes/hero-mockup-prompt.md` for the original hero artwork and composition workflow.

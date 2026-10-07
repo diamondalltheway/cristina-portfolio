@@ -1,4 +1,5 @@
-// Smooth screen outlines and perspective maps aligned to the 1672 × 941 studio photograph.
+// Source geometry for scripts/prepare-hero.mjs. The website serves the finished
+// composite so Safari does not need to render masked HTML inside an SVG.
 export const heroScreens = [
   {
     id: 'pets',

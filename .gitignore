@@ -2,6 +2,7 @@ node_modules/
 .DS_Store
 test-results/
 playwright-report/
+static/hero-render-fixture.html
 .svelte-kit/
 build/
 .vercel/
